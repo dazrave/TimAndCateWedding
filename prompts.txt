@@ -1,0 +1,74 @@
+Create a beautiful and elegant wedding website for Tim and Cate, who are getting married on Saturday 10th October 2026 at Merewood Country House Hotel in Windermere, Lake District, UK.
+
+The tone should be warm, informal, and welcoming, with a touch of autumn elegance. Design elements should use a rich, seasonal colour palette – including tones of burgundy, burnt orange, ivory, sage green, and gold. The website should be mobile-friendly and easy to navigate.
+
+The website should include the following pages/sections:
+
+1. Home Page
+	•	A warm welcome message (we’ll personalise this)
+	•	A countdown to the big day
+	•	A featured image of the venue or the couple (placeholder for now)
+
+2. Our Story
+	•	Placeholder for how Tim & Cate met and got engaged
+
+3. The Big Day
+	•	Full wedding day schedule (1pm ceremony → late night DJ finish)
+	•	Optional Friday dinner info
+	•	Sunday breakfast note
+
+4. Venue & Travel
+	•	Map and address of Merewood Country House Hotel
+	•	Local travel and parking guidance (placeholder text)
+	•	Tips for exploring Windermere (optional section)
+
+5. Accommodation
+	•	Info about room availability at the venue
+	•	Note about the 3 tiers of accommodation (fully paid / subsidised / not offered)
+	•	Encouragement to respond via RSVP form
+
+6. FAQs
+	•	Dress code: Smart, no jeans/polos/trainers. No white dresses, please.
+	•	Dietary needs: Prompted during RSVP
+	•	Gifts: To be confirmed (placeholder text)
+	•	Children: To be confirmed (placeholder text)
+
+7. Entertainment
+	•	Info about the live band Bellerose
+	•	Piano for ceremony, trio for reception, DJ + band in evening
+
+8. RSVP Page
+	•	RSVP form section with:
+	•	Names
+	•	Attendance (Friday–Sunday options)
+	•	Room availability (if offered)
+	•	Dietary requirements (checkbox list + free-text box)
+	•	Other notes
+
+9. Gallery (optional placeholder section)
+	•	Placeholder for future engagement or venue photos
+
+10. Wedding Party (optional placeholder section)
+	•	Optional space for best men, bridesmaids, etc.
+
+Is it possible to add a login page and then create a different RSVP and Different Sections depending on who has logged in. There will be 3 different types of guests they will have their own email login identifier and will either belong to group 1000, 2000 or 3000. I will provide a (CRM-like) Spreadsheet lookup for this
+In the gallery section, in the text. I want to make 'HERE' a hyperlink, for now just direct it to www.google.com then I can Edit later
+Can you reformat this:
+<div class="mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Donations</h4>
+                        <p class="text-gray-600">Truly, your presence at our wedding is the greatest gift of all. However, if you'd like to contribute to our honeymoon, please use the links below:
+                            
+                        PAYPAL
+                        MONZO
+                        BANK TRANSFER </p>
+
+So Paypal, Monzo and Bank Statement appear on new lines and can you make them hyperlinks and underlined. For now, each can go to www.google.com
+This: 
+<a href="#photos" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Photos</a>
+
+doesn't link to the     <!-- Photos Section --> below. what have I done wrong?
+In the hero section add a text field between the countdown and the RSVP button that will be used as a field for user to enter their unique login code. Please add the text saying 'Enter your code here'
+Increase opacity of the following box to match the countdown items
+
+<div class="mb-8 w-full max-w-xs mx-auto">
+                <input type="text" placeholder="Enter your code here" class="w-full px-4 py-2 rounded-full text-center focus:outline-none focus:ring-2 focus:ring-white">
