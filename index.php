@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--Daz is dev-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
