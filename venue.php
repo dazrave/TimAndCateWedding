@@ -64,7 +64,7 @@
             
             <div class="flex flex-col md:flex-row items-center mb-16">
                 <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10" data-aos="fade-right">
-                    <img src="https://www.offpeakluxury.com/db_library/merewood-country-house/1024x768_93N8S_77824merewood-front.jpg" alt="Merewood Country House Hotel" class="rounded-lg shadow-xl">
+                    <img src="/images/venue001.jpg" alt="Merewood Country House Hotel" class="rounded-lg shadow-xl">
                 </div>
                 <div class="md:w-1/2" data-aos="fade-left">
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">Merewood Country House Hotel</h3>
