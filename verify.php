@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
     $login_code = trim($_POST['login_code']);
 
     // Replace this with your actual Web App URL
-    $api_url = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?login_code=' . urlencode($login_code);
+    $api_url = 'https://script.google.com/macros/library/d/11aSUpoCFJgH9P0ny_xTcWrn12VpWW53XJHEA12ZwCzb1RV_LzsMZt4qZ/1/exec?login_code=' . urlencode($login_code);
 
     $response = file_get_contents($api_url);
 
