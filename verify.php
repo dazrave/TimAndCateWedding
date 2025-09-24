@@ -1,28 +1,67 @@
 <?php
 session_start();
 
-// Sample guest groups (would normally come from database)
-$guestGroups = [
-    '1000' => ['access_level' => 1, 'redirect' => 'rsvp-group1.php'],
-    '2000' => ['access_level' => 2, 'redirect' => 'rsvp-group2.php'],
-    '3000' => ['access_level' => 3, 'redirect' => 'rsvp-group3.php']
-];
+$login_code = '';
+$error_message = '';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $accessCode = trim($_POST['access_code']);
-    
-    if (array_key_exists($accessCode, $guestGroups)) {
-        $_SESSION['access_level'] = $guestGroups[$accessCode]['access_level'];
-        $_SESSION['logged_in'] = true;
-        header("Location: " . $guestGroups[$accessCode]['redirect']);
-        exit();
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
+    $login_code = trim($_POST['login_code']);
+
+    // Replace this with your actual Web App URL
+    $api_url = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?login_code=' . urlencode($login_code);
+
+    $response = file_get_contents($api_url);
+
+    if ($response === false) {
+        $error_message = "We're having trouble connecting. Please try again shortly.";
     } else {
-        $error = "Invalid access code. Please try again.";
-        header("Location: login.php?error=" . urlencode($error));
-        exit();
+        $data = json_decode($response, true);
+
+        if ($data && $data['status'] === 'success') {
+            $_SESSION['invite'] = $data['data'];
+            header('Location: rsvp.php');
+            exit;
+        } else {
+            $error_message = "We couldn’t find that code. Please check and try again.";
+        }
     }
-} else {
-    header("Location: login.php");
-    exit();
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify Invite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-md rounded-lg p-8 w-full max-w-md text-center">
+        <h1 class="text-2xl font-bold mb-4 text-gray-800">Enter Your Invite Code</h1>
+
+        <?php if (!empty($error_message)): ?>
+            <div class="mb-4 text-red-600 font-medium bg-red-100 p-2 rounded-md">
+                <?= htmlspecialchars($error_message) ?>
+            </div>
+        <?php endif; ?>
+
+        <form method="POST" action="verify.php" class="space-y-4">
+            <input
+                type="text"
+                name="login_code"
+                value="<?= htmlspecialchars($login_code) ?>"
+                placeholder="Enter your code"
+                required
+                class="w-full px-4 py-2 rounded-full placeholder-gray-500 text-center text-gray-900 font-bold focus:outline-none focus:ring-4 focus:ring-red-300 bg-gray-100 border border-gray-300"
+            >
+            <button
+                type="submit"
+                class="w-full px-4 py-2 rounded-full text-white font-bold bg-red-600 hover:bg-red-700 transition-all"
+            >
+                Continue
+            </button>
+        </form>
+    </div>
+</body>
+</html>

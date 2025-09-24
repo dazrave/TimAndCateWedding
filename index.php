@@ -1,3 +1,29 @@
+<?php
+session_start();
+
+$login_code = '';
+$error_message = '';
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
+    $login_code = trim($_POST['login_code']);
+    $api_url = 'https://script.google.com/macros/s/AKfycbxguaWfcJATy5iD0XHI1YhVXlfvx4srpgnWMJH8AuimKHB_pBG_Yvj4iXgdVbXvtPqE/exec?login_code=' . urlencode($login_code);
+    $response = file_get_contents($api_url);
+
+    if ($response === false) {
+        $error_message = "We're having trouble connecting. Please try again later.";
+    } else {
+        $data = json_decode($response, true);
+        if ($data && $data['status'] === 'success') {
+            $_SESSION['invite'] = $data['data'];
+            header('Location: rsvp.php');
+            exit;
+        } else {
+            $error_message = "We couldn’t find that code. Please check and try again.";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +86,7 @@
                 <a href="#" class="text-2xl font-bold text-gray-800 hover:text-be3144 transition duration-300">
                     <span class="text-be3144">Tim</span> & <span class="text-d2691e">Catherine's Wedding</span>
                 </a>
-                <div class="hidden md:flex space-x-8">
+                <!--div class="hidden md:flex space-x-8">
                     <a href="thebigday.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">The Big Day</a>
                     <a href="travel.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Travel</a>
                     <a href="venue.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Venue</a>
@@ -104,8 +130,29 @@
 
             <div class="mb-8 w-full max-w-xs mx-auto">
    
-            <div class="mb-8 w-full max-w-xs mx-auto">
-                <input type="text" placeholder="Enter your code here" class="w-full px-4 py-2 rounded-full placeholder-white text-center text-white font-bold focus:outline-none focus:ring-4 focus:ring-white bg-white/40 border border-white/40 backdrop-blur/80">
+            <form method="POST" action="#login" id="login" class="mb-8 w-full max-w-xs mx-auto">
+    <?php if (!empty($error_message)) : ?>
+        <div class="mb-4 text-red-600 font-medium bg-red-100 p-2 rounded-md text-center">
+            <?= htmlspecialchars($error_message) ?>
+        </div>
+    <?php endif; ?>
+
+    <input
+        type="text"
+        name="login_code"
+        value="<?= htmlspecialchars($login_code) ?>"
+        placeholder="Enter your code here"
+        required
+        class="w-full px-4 py-2 rounded-full placeholder-white text-center text-white font-bold focus:outline-none focus:ring-4 focus:ring-white bg-white/40 border border-white/40 backdrop-blur/80"
+    >
+
+    <button
+        type="submit"
+        class="mt-4 w-full px-4 py-2 rounded-full text-white font-bold bg-red-600 hover:bg-red-700 transition-all"
+    >
+        Continue
+    </button>
+</form>
 </div>
 
             <!--a href="#rsvp" class="btn-primary text-white font-bold py-3 px-8 rounded-full inline-block shadow-lg">RSVP</a-->
