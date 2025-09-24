@@ -15,5 +15,8 @@ RewriteRule ^([^/]+)/?$ $1.php [L]
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^([^/]+)/?$ $1.html [L]
 
+# Redirect '/index' to root
+RewriteRule ^index/?$ / [R=301,L]
+
 # Optional: serve index.php or index.html for the root
 DirectoryIndex index.php index.html
