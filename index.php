@@ -80,7 +80,7 @@
         <div class="absolute inset-0 bg-black opacity-40"></div>
         <img src="https://stillwatereventcenter.com/wp-content/uploads/2022/09/F6AABA4A-4EE0-4988-ADC1-9DE46EB6DC0C-940x675.jpg" alt="Lake District" class="absolute inset-0 w-full h-full object-cover">
         <div class="relative z-10 px-6" data-aos="fade-up">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Tim & Catherine TEST</h1>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Tim & Catherine</h1>
             <p class="text-xl md:text-2xl mb-8">Saturday, 10th October 2026<br>Merewood Country House Hotel, Windermere</p>
             
             <div class="flex justify-center space-x-4 mb-12">
