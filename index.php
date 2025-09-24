@@ -54,26 +54,26 @@
 </head>
 <body class="overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white shadow-md">
+    <!--nav class="fixed w-full z-50 bg-white shadow-md">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold text-gray-800 hover:text-be3144 transition duration-300">
                     <span class="text-be3144">Tim</span> & <span class="text-d2691e">Catherine's Wedding</span>
                 </a>
-                <!--div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-8">
                     <a href="thebigday.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">The Big Day</a>
                     <a href="travel.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Travel</a>
                     <a href="venue.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Venue</a>
                     <a href="rsvp.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">RSVP</a>
                     <a href="photos.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Photos</a>
                     <a href="gifts.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Gifts</a>
-                </div-->
+                </div>
                 <button class="md:hidden focus:outline-none">
                     <i data-feather="menu" class="text-gray-700"></i>
                 </button>
             </div>
         </div>
-    </nav>
+    </nav-->
 
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center text-center text-white hero-gradient">
@@ -108,7 +108,7 @@
                 <input type="text" placeholder="Enter your code here" class="w-full px-4 py-2 rounded-full placeholder-white text-center text-white font-bold focus:outline-none focus:ring-4 focus:ring-white bg-white/40 border border-white/40 backdrop-blur/80">
 </div>
 
-            <!--<a href="#rsvp" class="btn-primary text-white font-bold py-3 px-8 rounded-full inline-block shadow-lg">RSVP</a-->
+            <!--a href="#rsvp" class="btn-primary text-white font-bold py-3 px-8 rounded-full inline-block shadow-lg">RSVP</a-->
         </div>
         
     </section>

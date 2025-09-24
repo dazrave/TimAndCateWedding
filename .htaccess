@@ -1,22 +1,21 @@
-# Enable rewriting
+# Enable Rewrite
 RewriteEngine On
-
-# Set the base directory
 RewriteBase /
 
-# Redirect .php or .html URLs to clean URLs
+# Redirect .php or .html requests to clean versions
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.(php|html) [NC]
 RewriteRule ^ %1 [R=301,L]
 
-# Internally rewrite clean URLs to real .php or .html files if they exist
-RewriteCond %{REQUEST_FILENAME} !-d
+# Skip if the file or directory exists
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 
+# Internally rewrite clean URL to .php or .html
 RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteRule ^(.+?)/?$ $1.php [L]
 
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^(.+?)/?$ $1.html [L]
 
-# Default directory index
+# Serve index.php or index.html by default
 DirectoryIndex index.php index.html
