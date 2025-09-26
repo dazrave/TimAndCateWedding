@@ -1,162 +1,128 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['invite'])) {
+    header('Location: index.php');
+    exit;
+}
+
+$invite = $_SESSION['invite'];
+$user_ids = explode(',', $invite['User_ID']);
+$user_names = explode(',', $invite['User_Name']);
+$group_size = count($user_ids);
+$group_id = isset($invite['Group_ID']) ? intval($invite['Group_ID']) : 3;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSVP | Tim & Cate's Wedding</title>
+    <title>RSVP</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f9f7f0;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .btn-primary {
-            background-color: #be3144;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background-color: #9a2534;
-        }
-    </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white shadow-md">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-be3144 transition duration-300">
-                    <span class="text-be3144">Tim</span> & <span class="text-d2691e">Cate's Wedding</span>
-                </a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="content.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">The Big Day</a>
-                    <a href="travel.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Travel</a>
-                    <a href="venue.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Venue</a>
-                    <a href="rsvp.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">RSVP</a>
-                    <a href="faq.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">FAQ</a>
-                    <a href="photos.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Photos</a>
-                    <a href="gifts.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Gifts</a>
-                </div>
-                <button class="md:hidden focus:outline-none">
-                    <i data-feather="menu" class="text-gray-700"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+    <form method="POST" action="submit_rsvp.php" class="bg-white shadow-lg rounded-lg p-8 w-full max-w-xl space-y-6">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-4">RSVP for <?= htmlspecialchars($invite['User_Present_Name']) ?></h1>
 
-    <!-- RSVP Section -->
-    <section class="py-20 bg-be3144 text-white mt-16">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">RSVP</h2>
-                <div class="w-24 h-1 bg-white mx-auto"></div>
-            </div>
-            
-            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden" data-aos="fade-up">
-                <div class="p-8 text-gray-800">
-                    <p class="text-center text-gray-600 mb-8">Please respond by 31st December 2026</p>
-                    
-                        <div class="mb-6">
-                            <label class="block text-gray-700 font-bold mb-2" for="names">Names</label>
-                            <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-be3144" id="names" type="text" placeholder="Full names of all guests in your party" required>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label class="block text-gray-700 font-bold mb-2">Attendance*</label>
-                            <div class="space-y-2">
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox text-be3144">
-                                    <span class="ml-2">I can attend</span>
-                                </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox text-be3144">
-                                    <span class="ml-2">I cannot attend</span>
-                                </label>
-                            </div>
-                        </div>
-  
-                        <div class="mb-6">
-                            <label class="block text-gray-700 font-bold mb-2">Dietary Requirements</label>
-                            <div class="space-y-2 mb-4">
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox text-be3144">
-                                    <span class="ml-2">Vegetarian</span>
-                                </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox text-be3144">
-                                    <span class="ml-2">Vegan</span>
-                                </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox text-be3144">
-                                    <span class="ml-2">Gluten Free</span>
-                                </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox text-be3144">
-                                    <span class="ml-2">Dairy Free</span>
-                                </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="form-checkbox text-be3144">
-                                    <span class="ml-2">Nut Allergy</span>
-                                </label>
-                            </div>
-                            <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-be3144" placeholder="Other dietary requirements or allergies"></textarea>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label class="block text-gray-700 font-bold mb-2" for="notes">Other Notes</label>
-                            <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-be3144" id="notes" placeholder="Anything else we should know?"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="w-full bg-be3144 text-white font-bold py-3 px-4 rounded-lg hover:bg-9a2534 transition duration-300">Submit RSVP</button>
-                    </form>
-                </div>
-            </div>
+        <!-- Step 1: Attendance (Group-Level) -->
+        <div>
+            <label class="block text-gray-700 font-semibold mb-2">Can you attend the wedding?</label>
+            <?php if ($group_size === 1): ?>
+                <select name="Attendance_Group" id="Attendance_Group" class="w-full p-2 border rounded">
+                    <option value="">Please select</option>
+                    <option value="attending">I am able to attend</option>
+                    <option value="not_attending">I am unable to attend</option>
+                </select>
+            <?php else: ?>
+                <select name="Attendance_Group" id="Attendance_Group" class="w-full p-2 border rounded">
+                    <option value="">Please select</option>
+                    <option value="all_attending">We can all attend</option>
+                    <option value="some_attending">Some of us can attend</option>
+                    <option value="not_attending">We are unable to attend</option>
+                </select>
+            <?php endif; ?>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <h2 class="text-2xl font-bold">
-                        <span class="text-be3144">Tim</span> & <span class="text-d2691e">Cate</span>
-                    </h2>
-                    <p class="text-gray-400 mt-2">10.10.2026</p>
+        <!-- Step 2: Individual Attendance if "some_attending" -->
+        <div id="individual-attendance" class="hidden">
+            <label class="block text-gray-700 font-semibold mb-2">Who can attend?</label>
+            <?php foreach ($user_ids as $index => $id): ?>
+                <div class="mb-2">
+                    <label>
+                        <input type="checkbox" name="Individual_Attendance[]" value="<?= $id ?>" class="mr-2">
+                        <?= htmlspecialchars($user_names[$index]) ?>
+                    </label>
                 </div>
-                
-                <div class="text-center md:text-right">
-                    <p class="text-gray-400">Merewood Country House Hotel</p>
-                    <p class="text-gray-400">Windermere, Lake District, UK</p>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>© 2026 Tim & Cate's Wedding. All rights reserved.</p>
-            </div>
+            <?php endforeach; ?>
         </div>
-    </footer>
+
+        <!-- Step 3: Dietary Requirements -->
+        <div id="dietary-container" class="hidden">
+            <label for="Dietary_Requirements" class="block text-gray-700 font-semibold mb-2">Do you have any dietary requirements?</label>
+            <textarea name="Dietary_Requirements" id="Dietary_Requirements" rows="3" class="w-full p-2 border rounded" placeholder="Please let us know if you or anyone in your group has any dietary requirements..."></textarea>
+        </div>
+
+        <!-- Step 4: Group_ID Specific Questions (only if attending) -->
+        <?php if ($group_id === 1 || $group_id === 2): ?>
+        <div id="stay-container" class="hidden space-y-4">
+            <label class="block text-gray-700 font-semibold">We’d love to invite you to stay with us for the weekend at the venue.
+                <?php if ($group_id === 1): ?>
+                    Free of charge.
+                <?php else: ?>
+                    The cost is £100 per night (£200 in total).
+                <?php endif; ?>
+                Due to check-in/out timing, you’d need to arrive Friday and leave Sunday.
+            </label>
+            <select name="Staying_Onsite" class="w-full p-2 border rounded">
+                <option value="">Please select</option>
+                <option value="yes">We’d love to</option>
+                <option value="no">We can’t stay for the weekend</option>
+            </select>
+
+            <label class="block text-gray-700 font-semibold mt-4">We’re also running a buffet on the Friday evening — to join us, you’d need to check in by 6pm. Will you be joining us for dinner?</label>
+            <select name="Friday_Dinner" class="w-full p-2 border rounded">
+                <option value="">Please select</option>
+                <option value="yes">We’d love to join you and can check in by 6pm</option>
+                <option value="no">We can’t join due to travel or other plans</option>
+            </select>
+        </div>
+        <?php endif; ?>
+
+        <!-- Step 5: Notes to Couple (Always Shown) -->
+        <div>
+            <label for="Final_Notes" class="block text-gray-700 font-semibold mb-2">Message to the couple</label>
+            <textarea name="Final_Notes" id="Final_Notes" rows="3" class="w-full p-2 border rounded" placeholder="Leave us a note, a message, or something funny…"></textarea>
+        </div>
+
+        <input type="hidden" name="Invite_ID" value="<?= htmlspecialchars($invite['Invite_ID']) ?>">
+        <input type="hidden" name="Login_Code" value="<?= htmlspecialchars($invite['Login_Code']) ?>">
+
+        <button type="submit" class="w-full bg-red-600 text-white font-bold py-2 rounded hover:bg-red-700">Submit RSVP</button>
+    </form>
 
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+        const attendanceSelect = document.getElementById('Attendance_Group');
+        const individualDiv = document.getElementById('individual-attendance');
+        const dietaryContainer = document.getElementById('dietary-container');
+        const stayContainer = document.getElementById('stay-container');
+
+        attendanceSelect.addEventListener('change', function () {
+            const value = this.value;
+
+            // Hide all conditional sections
+            individualDiv.classList.add('hidden');
+            dietaryContainer.classList.add('hidden');
+            if (stayContainer) stayContainer.classList.add('hidden');
+
+            if (value === 'some_attending') {
+                individualDiv.classList.remove('hidden');
+                dietaryContainer.classList.remove('hidden');
+                if (stayContainer) stayContainer.classList.remove('hidden');
+            } else if (value === 'all_attending' || value === 'attending') {
+                dietaryContainer.classList.remove('hidden');
+                if (stayContainer) stayContainer.classList.remove('hidden');
+            }
         });
-        
-        // Initialize Feather Icons
-        feather.replace();
     </script>
 </body>
 </html>
