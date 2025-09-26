@@ -18,6 +18,10 @@ $data = [
     'RSVP_Timestamp' => date('Y-m-d H:i:s'),
 ];
 
+// TEMP DEBUG
+file_put_contents('debug_log.txt', print_r($_POST, true), FILE_APPEND);
+file_put_contents('debug_log.txt', print_r($data, true), FILE_APPEND);
+
 // Convert to JSON
 $jsonData = json_encode($data);
 

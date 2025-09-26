@@ -11,6 +11,7 @@ $user_ids = explode(',', $invite['User_ID']);
 $user_names = explode(',', $invite['User_Name']);
 $group_size = count($user_ids);
 $group_id = isset($invite['Group_ID']) ? intval($invite['Group_ID']) : 3;
+$is_solo = ($group_size === 1);
 ?>
 
 <!DOCTYPE html>
@@ -65,25 +66,30 @@ $group_id = isset($invite['Group_ID']) ? intval($invite['Group_ID']) : 3;
         <!-- Step 4: Group_ID Specific Questions (only if attending) -->
         <?php if ($group_id === 1 || $group_id === 2): ?>
         <div id="stay-container" class="hidden space-y-4">
-            <label class="block text-gray-700 font-semibold">We’d love to invite you to stay with us for the weekend at the venue.
+            <label class="block text-gray-700 font-semibold">
+                <?= $is_solo ? "We’d love to invite you to stay with us for the weekend at the venue." : "We’d love to invite you all to stay with us for the weekend at the venue." ?>
                 <?php if ($group_id === 1): ?>
                     Free of charge.
                 <?php else: ?>
-                    The cost is £100 per night (£200 in total).
+                    The cost is £100 per night (<?= $is_solo ? '£100' : '£200' ?> in total).
                 <?php endif; ?>
-                Due to check-in/out timing, you’d need to arrive Friday and leave Sunday.
+                Due to check-in/out timing, <?= $is_solo ? "you’d need to arrive Friday and leave Sunday." : "you’d all need to arrive Friday and leave Sunday." ?>
             </label>
             <select name="Staying_Onsite" class="w-full p-2 border rounded">
                 <option value="">Please select</option>
-                <option value="yes">We’d love to</option>
-                <option value="no">We can’t stay for the weekend</option>
+                <option value="yes"><?= $is_solo ? "I’d love to" : "We’d love to" ?></option>
+                <option value="no"><?= $is_solo ? "I can’t stay for the weekend" : "We can’t stay for the weekend" ?></option>
             </select>
 
-            <label class="block text-gray-700 font-semibold mt-4">We’re also running a buffet on the Friday evening — to join us, you’d need to check in by 6pm. Will you be joining us for dinner?</label>
+            <label class="block text-gray-700 font-semibold mt-4">
+                <?= $is_solo
+                    ? "We’re also running a buffet on the Friday evening — to join us, you’d need to check in by 6pm. Will you be joining us for dinner?"
+                    : "We’re also running a buffet on the Friday evening — to join us, you’d all need to check in by 6pm. Will you be joining us for dinner?" ?>
+            </label>
             <select name="Friday_Dinner" class="w-full p-2 border rounded">
                 <option value="">Please select</option>
-                <option value="yes">We’d love to join you and can check in by 6pm</option>
-                <option value="no">We can’t join due to travel or other plans</option>
+                <option value="yes"><?= $is_solo ? "I’d love to join you and can check in by 6pm" : "We’d love to join you and can check in by 6pm" ?></option>
+                <option value="no"><?= $is_solo ? "I can’t join due to travel or other plans" : "We can’t join due to travel or other plans" ?></option>
             </select>
         </div>
         <?php endif; ?>
