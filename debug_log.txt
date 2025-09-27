@@ -82,10 +82,17 @@ Array
 Array
 (
     [Attendance_Group] => attending
+<<<<<<< HEAD
     [Dietary_Requirements] => yes
     [Staying_Onsite] => yes
     [Friday_Dinner] => yes
     [Final_Notes] => yes
+=======
+    [Dietary_Requirements] => vcheese
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => boom
+>>>>>>> dev
     [Invite_ID] => INV1043
     [Login_Code] => test1
 )
@@ -98,6 +105,7 @@ Array
         (
         )
 
+<<<<<<< HEAD
     [Dietary_Requirements] => yes
     [Staying_Onsite] => yes
     [Friday_Dinner] => yes
@@ -128,4 +136,11 @@ Array
     [Friday_Dinner] => 
     [Final_Notes] => 
     [RSVP_Timestamp] => 2025-09-26 20:03:46
+=======
+    [Dietary_Requirements] => vcheese
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => boom
+    [RSVP_Timestamp] => 2025-09-27 12:01:23
+>>>>>>> dev
 )
