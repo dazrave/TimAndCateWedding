@@ -46,10 +46,13 @@ if (
     $errors[] = 'Please provide dietary requirements or write "None".';
 }
 
-// 4. If part of an invited group (Group_ID 1 or 2), validate stay fields
-// ⚠️ Only run these if they are part of the POST request
-if (!empty($staying_onsite)) {
-    if ($staying_onsite === 'yes' && empty($friday_dinner)) {
+// 4. Only validate Stay/Dinner questions IF attending
+$is_attending = in_array($attendance_group, ['attending', 'all_attending', 'some_attending']);
+if ($is_attending) {
+    if (isset($_POST['Staying_Onsite']) && $staying_onsite === '') {
+        $errors[] = 'Please let us know if you’ll be staying at the venue.';
+    }
+    if ($staying_onsite === 'yes' && $friday_dinner === '') {
         $errors[] = 'Please confirm if you will join Friday dinner.';
     }
 }

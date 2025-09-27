@@ -1,12 +1,6 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_SESSION['rsvp_attendance'] = $_POST['Attendance_Group'] ?? '';
-    header('Location: thankyou.php');
-    exit;
-}
-
 if (!isset($_SESSION['invite'])) {
     header('Location: index.php');
     exit;
@@ -26,6 +20,12 @@ $is_solo = ($group_size === 1);
     <meta charset="UTF-8">
     <title>RSVP</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .asterisk {
+            color: red;
+            display: none;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
     <form method="POST" action="submit_rsvp.php" class="bg-white shadow-lg rounded-lg p-8 w-full max-w-xl space-y-6">
@@ -53,7 +53,7 @@ $is_solo = ($group_size === 1);
             <?php foreach ($user_ids as $index => $id): ?>
                 <div class="mb-2">
                     <label>
-                        <input type="checkbox" name="Individual_Attendance[]" value="<?= $id ?>" class="mr-2">
+                        <input type="checkbox" name="Individual_Attendance[]" value="<?= $id ?>" class="mr-2 required-if-shown">
                         <?= htmlspecialchars($user_names[$index]) ?>
                     </label>
                 </div>
@@ -62,8 +62,10 @@ $is_solo = ($group_size === 1);
 
         <!-- Step 3: Dietary Requirements -->
         <div id="dietary-container" class="hidden">
-            <label for="Dietary_Requirements" class="block text-gray-700 font-semibold mb-2">Do you have any dietary requirements? <span class="text-red-500">*</span></label>
-            <textarea name="Dietary_Requirements" id="Dietary_Requirements" rows="3" class="w-full p-2 border rounded" placeholder="If none, please write 'None'"></textarea>
+            <label for="Dietary_Requirements" class="block text-gray-700 font-semibold mb-2">
+                Do you have any dietary requirements? <span id="asterisk-diet" class="asterisk">*</span>
+            </label>
+            <textarea name="Dietary_Requirements" id="Dietary_Requirements" rows="3" class="w-full p-2 border rounded" placeholder="If none, please write 'None'" required></textarea>
         </div>
 
         <!-- Step 4: Group_ID Specific Questions (only if attending) -->
@@ -77,6 +79,7 @@ $is_solo = ($group_size === 1);
                     The cost is £100 per night (<?= $is_solo ? '£100' : '£200' ?> in total).
                 <?php endif; ?>
                 Due to check-in/out rules, <?= $is_solo ? "you’d need to arrive Friday and leave Sunday." : "you’d all need to arrive Friday and leave Sunday." ?>
+                <span id="asterisk-stay" class="asterisk">*</span>
             </label>
             <select name="Staying_Onsite" id="Staying_Onsite" class="w-full p-2 border rounded">
                 <option value="">Please select</option>
@@ -89,6 +92,7 @@ $is_solo = ($group_size === 1);
                     <?= $is_solo
                         ? "We’re also running a buffet on the Friday evening — to join us, you’d need to check in by 6pm. Will you be joining us for dinner?"
                         : "We’re also running a buffet on the Friday evening — to join us, you’d all need to check in by 6pm. Will you be joining us for dinner?" ?>
+                    <span id="asterisk-dinner" class="asterisk">*</span>
                 </label>
                 <select name="Friday_Dinner" id="Friday_Dinner" class="w-full p-2 border rounded">
                     <option value="">Please select</option>
@@ -120,6 +124,10 @@ $is_solo = ($group_size === 1);
         const fridayDinnerContainer = document.getElementById('friday-dinner-container');
         const fridayDinnerSelect = document.getElementById('Friday_Dinner');
 
+        const asteriskDiet = document.getElementById('asterisk-diet');
+        const asteriskStay = document.getElementById('asterisk-stay');
+        const asteriskDinner = document.getElementById('asterisk-dinner');
+
         function updateFormVisibility() {
             const attendance = attendanceSelect.value;
 
@@ -128,13 +136,21 @@ $is_solo = ($group_size === 1);
             if (stayContainer) stayContainer.classList.add('hidden');
             if (fridayDinnerContainer) fridayDinnerContainer.classList.add('hidden');
 
+            asteriskDiet.style.display = 'none';
+            asteriskStay.style.display = 'none';
+            asteriskDinner.style.display = 'none';
+
             if (attendance === 'some_attending') {
                 individualDiv.classList.remove('hidden');
                 dietaryContainer.classList.remove('hidden');
                 if (stayContainer) stayContainer.classList.remove('hidden');
+                asteriskDiet.style.display = 'inline';
+                asteriskStay.style.display = 'inline';
             } else if (attendance === 'all_attending' || attendance === 'attending') {
                 dietaryContainer.classList.remove('hidden');
                 if (stayContainer) stayContainer.classList.remove('hidden');
+                asteriskDiet.style.display = 'inline';
+                asteriskStay.style.display = 'inline';
             }
         }
 
@@ -144,41 +160,16 @@ $is_solo = ($group_size === 1);
             if (stayVal === 'yes') {
                 fridayDinnerContainer.classList.remove('hidden');
                 fridayDinnerSelect.setAttribute('required', 'required');
+                asteriskDinner.style.display = 'inline';
             } else {
                 fridayDinnerContainer.classList.add('hidden');
                 fridayDinnerSelect.removeAttribute('required');
                 fridayDinnerSelect.value = '';
+                asteriskDinner.style.display = 'none';
             }
         }
 
-        function updateFieldRequirements() {
-            const attendance = attendanceSelect.value;
-
-            const dietaryField = document.getElementById('Dietary_Requirements');
-            const stayField = document.getElementById('Staying_Onsite');
-            const checkboxes = individualDiv.querySelectorAll('input[type="checkbox"]');
-
-            // Remove all requireds first
-            dietaryField.removeAttribute('required');
-            if (stayField) stayField.removeAttribute('required');
-            checkboxes.forEach(cb => cb.required = false);
-
-            // Reapply conditionally
-            if (attendance === 'some_attending') {
-                dietaryField.setAttribute('required', 'required');
-                if (stayField) stayField.setAttribute('required', 'required');
-                checkboxes.forEach(cb => cb.required = true);
-            } else if (attendance === 'all_attending' || attendance === 'attending') {
-                dietaryField.setAttribute('required', 'required');
-                if (stayField) stayField.setAttribute('required', 'required');
-            }
-        }
-
-        attendanceSelect.addEventListener('change', () => {
-            updateFormVisibility();
-            updateFieldRequirements();
-        });
-
+        attendanceSelect.addEventListener('change', updateFormVisibility);
         if (stayingSelect) {
             stayingSelect.addEventListener('change', updateDinnerVisibility);
         }

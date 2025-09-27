@@ -294,3 +294,258 @@ Array
     [Final_Notes] => 
     [RSVP_Timestamp] => 2025-09-27 16:12:36
 )
+Array
+(
+    [Attendance_Group] => not_attending
+    [Dietary_Requirements] => 
+    [Staying_Onsite] => 
+    [Friday_Dinner] => 
+    [Final_Notes] => 
+    [Invite_ID] => INV1044
+    [Login_Code] => test2
+)
+Array
+(
+    [Invite_ID] => INV1044
+    [Login_Code] => test2
+    [Attendance_Group] => not_attending
+    [Individual_Attendance] => Array
+        (
+        )
+
+    [Dietary_Requirements] => 
+    [Staying_Onsite] => 
+    [Friday_Dinner] => 
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-09-27 16:15:30
+)
+Array
+(
+    [Attendance_Group] => some_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+)
+Array
+(
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+    [Attendance_Group] => some_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-09-27 16:29:30
+)
+Array
+(
+    [Attendance_Group] => all_attending
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+)
+Array
+(
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+    [Attendance_Group] => all_attending
+    [Individual_Attendance] => Array
+        (
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-09-27 16:36:24
+)
+Array
+(
+    [Attendance_Group] => some_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+)
+Array
+(
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+    [Attendance_Group] => some_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-09-27 16:46:18
+)
+Array
+(
+    [Attendance_Group] => not_attending
+    [Dietary_Requirements] => 
+    [Staying_Onsite] => 
+    [Friday_Dinner] => 
+    [Final_Notes] => 
+    [Invite_ID] => INV1043
+    [Login_Code] => test1
+)
+Array
+(
+    [Invite_ID] => INV1043
+    [Login_Code] => test1
+    [Attendance_Group] => not_attending
+    [Individual_Attendance] => Array
+        (
+        )
+
+    [Dietary_Requirements] => 
+    [Staying_Onsite] => 
+    [Friday_Dinner] => 
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-09-27 16:46:33
+)
+Array
+(
+    [Attendance_Group] => not_attending
+    [Dietary_Requirements] => 
+    [Staying_Onsite] => 
+    [Friday_Dinner] => 
+    [Final_Notes] => 
+    [Invite_ID] => INV1043
+    [Login_Code] => test1
+)
+Array
+(
+    [Invite_ID] => INV1043
+    [Login_Code] => test1
+    [Attendance_Group] => not_attending
+    [Individual_Attendance] => Array
+        (
+        )
+
+    [Dietary_Requirements] => 
+    [Staying_Onsite] => 
+    [Friday_Dinner] => 
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-09-27 16:46:48
+)
+Array
+(
+    [Attendance_Group] => not_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => 
+    [Friday_Dinner] => 
+    [Final_Notes] => 
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+)
+Array
+(
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+    [Attendance_Group] => not_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => 
+    [Friday_Dinner] => 
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-09-27 16:52:47
+)
+Array
+(
+    [Attendance_Group] => some_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => boom
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+)
+Array
+(
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+    [Attendance_Group] => some_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => boom
+    [RSVP_Timestamp] => 2025-09-27 16:53:18
+)
+Array
+(
+    [Attendance_Group] => some_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+)
+Array
+(
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+    [Attendance_Group] => some_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-09-27 16:57:44
+)
