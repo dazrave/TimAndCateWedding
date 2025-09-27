@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['rsvp_attendance'] = $_POST['Attendance_Group'] ?? '';
 
 // Reject non-POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -96,7 +97,7 @@ curl_close($ch);
 
 // Success or failure handling
 if ($http_status === 200) {
-    header('Location: thankyou.html');
+    header('Location: thankyou.php');
     exit;
 } else {
     echo '<p>Something went wrong. Please try again.</p>';

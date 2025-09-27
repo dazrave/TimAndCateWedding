@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['rsvp_attendance'] = $_POST['Attendance_Group'] ?? '';
+    header('Location: thankyou.php');
+    exit;
+}
+
 if (!isset($_SESSION['invite'])) {
     header('Location: index.php');
     exit;
@@ -47,7 +53,7 @@ $is_solo = ($group_size === 1);
             <?php foreach ($user_ids as $index => $id): ?>
                 <div class="mb-2">
                     <label>
-                        <input type="checkbox" name="Individual_Attendance[]" value="<?= $id ?>" class="mr-2 required-if-shown">
+                        <input type="checkbox" name="Individual_Attendance[]" value="<?= $id ?>" class="mr-2">
                         <?= htmlspecialchars($user_names[$index]) ?>
                     </label>
                 </div>
@@ -57,7 +63,7 @@ $is_solo = ($group_size === 1);
         <!-- Step 3: Dietary Requirements -->
         <div id="dietary-container" class="hidden">
             <label for="Dietary_Requirements" class="block text-gray-700 font-semibold mb-2">Do you have any dietary requirements? <span class="text-red-500">*</span></label>
-            <textarea name="Dietary_Requirements" id="Dietary_Requirements" rows="3" class="w-full p-2 border rounded" placeholder="If none, please write 'None'" required></textarea>
+            <textarea name="Dietary_Requirements" id="Dietary_Requirements" rows="3" class="w-full p-2 border rounded" placeholder="If none, please write 'None'"></textarea>
         </div>
 
         <!-- Step 4: Group_ID Specific Questions (only if attending) -->
@@ -72,7 +78,7 @@ $is_solo = ($group_size === 1);
                 <?php endif; ?>
                 Due to check-in/out rules, <?= $is_solo ? "you’d need to arrive Friday and leave Sunday." : "you’d all need to arrive Friday and leave Sunday." ?>
             </label>
-            <select name="Staying_Onsite" id="Staying_Onsite" class="w-full p-2 border rounded" required>
+            <select name="Staying_Onsite" id="Staying_Onsite" class="w-full p-2 border rounded">
                 <option value="">Please select</option>
                 <option value="yes"><?= $is_solo ? "I’d love to" : "We’d love to" ?></option>
                 <option value="no"><?= $is_solo ? "I can’t stay for the weekend" : "We can’t stay for the weekend" ?></option>
@@ -84,7 +90,7 @@ $is_solo = ($group_size === 1);
                         ? "We’re also running a buffet on the Friday evening — to join us, you’d need to check in by 6pm. Will you be joining us for dinner?"
                         : "We’re also running a buffet on the Friday evening — to join us, you’d all need to check in by 6pm. Will you be joining us for dinner?" ?>
                 </label>
-                <select name="Friday_Dinner" id="Friday_Dinner" class="w-full p-2 border rounded" required>
+                <select name="Friday_Dinner" id="Friday_Dinner" class="w-full p-2 border rounded">
                     <option value="">Please select</option>
                     <option value="yes"><?= $is_solo ? "I’d love to join you and can check in by 6pm" : "We’d love to join you and can check in by 6pm" ?></option>
                     <option value="no"><?= $is_solo ? "I can’t join due to travel or other plans" : "We can’t join due to travel or other plans" ?></option>
@@ -145,12 +151,37 @@ $is_solo = ($group_size === 1);
             }
         }
 
-        attendanceSelect.addEventListener('change', updateFormVisibility);
+        function updateFieldRequirements() {
+            const attendance = attendanceSelect.value;
+
+            const dietaryField = document.getElementById('Dietary_Requirements');
+            const stayField = document.getElementById('Staying_Onsite');
+            const checkboxes = individualDiv.querySelectorAll('input[type="checkbox"]');
+
+            // Remove all requireds first
+            dietaryField.removeAttribute('required');
+            if (stayField) stayField.removeAttribute('required');
+            checkboxes.forEach(cb => cb.required = false);
+
+            // Reapply conditionally
+            if (attendance === 'some_attending') {
+                dietaryField.setAttribute('required', 'required');
+                if (stayField) stayField.setAttribute('required', 'required');
+                checkboxes.forEach(cb => cb.required = true);
+            } else if (attendance === 'all_attending' || attendance === 'attending') {
+                dietaryField.setAttribute('required', 'required');
+                if (stayField) stayField.setAttribute('required', 'required');
+            }
+        }
+
+        attendanceSelect.addEventListener('change', () => {
+            updateFormVisibility();
+            updateFieldRequirements();
+        });
+
         if (stayingSelect) {
             stayingSelect.addEventListener('change', updateDinnerVisibility);
         }
     </script>
 </body>
 </html>
-<?php
-
