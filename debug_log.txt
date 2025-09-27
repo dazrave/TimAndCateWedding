@@ -79,3 +79,28 @@ Array
     [Final_Notes] => love
     [RSVP_Timestamp] => 2025-09-26 19:32:48
 )
+Array
+(
+    [Attendance_Group] => attending
+    [Dietary_Requirements] => vcheese
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => boom
+    [Invite_ID] => INV1043
+    [Login_Code] => test1
+)
+Array
+(
+    [Invite_ID] => INV1043
+    [Login_Code] => test1
+    [Attendance_Group] => attending
+    [Individual_Attendance] => Array
+        (
+        )
+
+    [Dietary_Requirements] => vcheese
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => boom
+    [RSVP_Timestamp] => 2025-09-27 12:01:23
+)

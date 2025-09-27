@@ -73,24 +73,26 @@ $is_solo = ($group_size === 1);
                 <?php else: ?>
                     The cost is £100 per night (<?= $is_solo ? '£100' : '£200' ?> in total).
                 <?php endif; ?>
-                Due to check-in/out timing, <?= $is_solo ? "you’d need to arrive Friday and leave Sunday." : "you’d all need to arrive Friday and leave Sunday." ?>
+                Due to check-in/out rules, <?= $is_solo ? "you’d need to arrive Friday and leave Sunday." : "you’d all need to arrive Friday and leave Sunday." ?>
             </label>
             <select name="Staying_Onsite" class="w-full p-2 border rounded">
                 <option value="">Please select</option>
                 <option value="yes"><?= $is_solo ? "I’d love to" : "We’d love to" ?></option>
                 <option value="no"><?= $is_solo ? "I can’t stay for the weekend" : "We can’t stay for the weekend" ?></option>
             </select>
-
-            <label class="block text-gray-700 font-semibold mt-4">
-                <?= $is_solo
-                    ? "We’re also running a buffet on the Friday evening — to join us, you’d need to check in by 6pm. Will you be joining us for dinner?"
-                    : "We’re also running a buffet on the Friday evening — to join us, you’d all need to check in by 6pm. Will you be joining us for dinner?" ?>
-            </label>
-            <select name="Friday_Dinner" class="w-full p-2 border rounded">
-                <option value="">Please select</option>
-                <option value="yes"><?= $is_solo ? "I’d love to join you and can check in by 6pm" : "We’d love to join you and can check in by 6pm" ?></option>
-                <option value="no"><?= $is_solo ? "I can’t join due to travel or other plans" : "We can’t join due to travel or other plans" ?></option>
-            </select>
+            
+            <div id="friday-dinner-container" class="hidden">
+    <label class="block text-gray-700 font-semibold mt-4">
+        <?= $is_solo
+            ? "We’re also running a buffet on the Friday evening — to join us, you’d need to check in by 6pm. Will you be joining us for dinner?"
+            : "We’re also running a buffet on the Friday evening — to join us, you’d all need to check in by 6pm. Will you be joining us for dinner?" ?>
+    </label>
+    <select name="Friday_Dinner" class="w-full p-2 border rounded">
+        <option value="">Please select</option>
+        <option value="yes"><?= $is_solo ? "I’d love to join you and can check in by 6pm" : "We’d love to join you and can check in by 6pm" ?></option>
+        <option value="no"><?= $is_solo ? "I can’t join due to travel or other plans" : "We can’t join due to travel or other plans" ?></option>
+    </select>
+</div>
         </div>
         <?php endif; ?>
 
@@ -111,6 +113,8 @@ $is_solo = ($group_size === 1);
         const individualDiv = document.getElementById('individual-attendance');
         const dietaryContainer = document.getElementById('dietary-container');
         const stayContainer = document.getElementById('stay-container');
+        const stayingSelect = document.querySelector('select[name="Staying_Onsite"]');
+        const fridayDinnerContainer = document.getElementById('friday-dinner-container');
 
         attendanceSelect.addEventListener('change', function () {
             const value = this.value;
@@ -127,8 +131,18 @@ $is_solo = ($group_size === 1);
             } else if (value === 'all_attending' || value === 'attending') {
                 dietaryContainer.classList.remove('hidden');
                 if (stayContainer) stayContainer.classList.remove('hidden');
+            if (stayingSelect) {
+            stayingSelect.addEventListener('change', function () {
+                const value = this.value;
+                if (value === 'yes') {
+                    fridayDinnerContainer.classList.remove('hidden');
+                } else {
+                    fridayDinnerContainer.classList.add('hidden');
+                    }
+                });
             }
-        });
+        }
+    });
     </script>
 </body>
 </html>
