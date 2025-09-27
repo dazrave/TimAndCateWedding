@@ -144,3 +144,28 @@ Array
     [RSVP_Timestamp] => 2025-09-27 12:01:23
 >>>>>>> dev
 )
+Array
+(
+    [Attendance_Group] => attending
+    [Dietary_Requirements] => chese
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [Invite_ID] => INV1043
+    [Login_Code] => test1
+)
+Array
+(
+    [Invite_ID] => INV1043
+    [Login_Code] => test1
+    [Attendance_Group] => attending
+    [Individual_Attendance] => Array
+        (
+        )
+
+    [Dietary_Requirements] => chese
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-09-27 12:50:22
+)
