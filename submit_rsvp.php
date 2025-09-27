@@ -1,48 +1,106 @@
 <?php
+session_start();
+
+// Reject non-POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo 'Method Not Allowed';
     exit;
 }
 
-// Build the data array
+// Helper function to trim and sanitise strings
+function clean_input($input) {
+    return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
+}
+
+// Extract and clean inputs
+$invite_id = clean_input($_POST['Invite_ID'] ?? '');
+$login_code = clean_input($_POST['Login_Code'] ?? '');
+$attendance_group = clean_input($_POST['Attendance_Group'] ?? '');
+$individual_attendance = isset($_POST['Individual_Attendance']) ? $_POST['Individual_Attendance'] : [];
+$dietary_requirements = clean_input($_POST['Dietary_Requirements'] ?? '');
+$staying_onsite = clean_input($_POST['Staying_Onsite'] ?? '');
+$friday_dinner = clean_input($_POST['Friday_Dinner'] ?? '');
+$final_notes = clean_input($_POST['Final_Notes'] ?? '');
+$timestamp = date('Y-m-d H:i:s');
+
+// ✳️ Server-side validation logic
+$errors = [];
+
+// 1. Attendance group is always required
+if (empty($attendance_group)) {
+    $errors[] = 'Attendance option is required.';
+}
+
+// 2. If "some_attending", individual attendance must be selected
+if ($attendance_group === 'some_attending' && empty($individual_attendance)) {
+    $errors[] = 'Please select who will be attending.';
+}
+
+// 3. If attending in any way, dietary requirements must be filled
+if (
+    in_array($attendance_group, ['attending', 'all_attending', 'some_attending']) &&
+    empty($dietary_requirements)
+) {
+    $errors[] = 'Please provide dietary requirements or write "None".';
+}
+
+// 4. If part of an invited group (Group_ID 1 or 2), validate stay fields
+// ⚠️ Only run these if they are part of the POST request
+if (!empty($staying_onsite)) {
+    if ($staying_onsite === 'yes' && empty($friday_dinner)) {
+        $errors[] = 'Please confirm if you will join Friday dinner.';
+    }
+}
+
+// 🛑 If validation fails, stop and display errors
+if (!empty($errors)) {
+    echo "<h2>There were errors in your submission:</h2><ul>";
+    foreach ($errors as $error) {
+        echo "<li>" . htmlspecialchars($error) . "</li>";
+    }
+    echo "</ul><p><a href='javascript:history.back()'>Go Back and Fix</a></p>";
+    exit;
+}
+
+// ✅ Build final data array
 $data = [
-    'Invite_ID' => $_POST['Invite_ID'] ?? '',
-    'Login_Code' => $_POST['Login_Code'] ?? '',
-    'Attendance_Group' => $_POST['Attendance_Group'] ?? '',
-    'Individual_Attendance' => isset($_POST['Individual_Attendance']) ? $_POST['Individual_Attendance'] : [],
-    'Dietary_Requirements' => $_POST['Dietary_Requirements'] ?? '',
-    'Staying_Onsite' => $_POST['Staying_Onsite'] ?? '',
-    'Friday_Dinner' => $_POST['Friday_Dinner'] ?? '',
-    'Final_Notes' => $_POST['Final_Notes'] ?? '',
-    'RSVP_Timestamp' => date('Y-m-d H:i:s'),
+    'Invite_ID' => $invite_id,
+    'Login_Code' => $login_code,
+    'Attendance_Group' => $attendance_group,
+    'Individual_Attendance' => $individual_attendance,
+    'Dietary_Requirements' => $dietary_requirements,
+    'Staying_Onsite' => $staying_onsite,
+    'Friday_Dinner' => $friday_dinner,
+    'Final_Notes' => $final_notes,
+    'RSVP_Timestamp' => $timestamp,
 ];
 
-// TEMP DEBUG
+// TEMP: Write to debug log for verification
 file_put_contents('debug_log.txt', print_r($_POST, true), FILE_APPEND);
 file_put_contents('debug_log.txt', print_r($data, true), FILE_APPEND);
 
-// Convert to JSON
+// Send data to Google Apps Script endpoint
 $jsonData = json_encode($data);
 
-// Set up cURL to send JSON
 $ch = curl_init('https://script.google.com/macros/s/AKfycbxguaWfcJATy5iD0XHI1YhVXlfvx4srpgnWMJH8AuimKHB_pBG_Yvj4iXgdVbXvtPqE/exec');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // ✅ Follow the redirect from Google
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
-// Execute the request
 $response = curl_exec($ch);
 $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-// Handle response
+// Success or failure handling
 if ($http_status === 200) {
     header('Location: thankyou.html');
     exit;
 } else {
-    echo 'Something went wrong. Please try again.';
+    echo '<p>Something went wrong. Please try again.</p>';
+    echo '<p>Status Code: ' . $http_status . '</p>';
+    echo '<p>Response: ' . htmlspecialchars($response) . '</p>';
 }
 ?>
