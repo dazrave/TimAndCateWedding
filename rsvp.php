@@ -76,21 +76,20 @@ $is_solo = ($group_size === 1);
                 <?php else: ?>
                     The cost is £100 per night (<?= $is_solo ? '£100' : '£200' ?> in total).
                 <?php endif; ?>
-                Due to check-in/out rules, <?= $is_solo ? "you’d need to arrive Friday and leave Sunday." : "you’d all need to arrive Friday and leave Sunday." ?>
+                Due to check-in/out rules, <?= $is_solo ? "you’d need to arrive Friday and leave Sunday. Would you like to stay with us at the venue?" : "you’d all need to arrive Friday and leave Sunday. Would you like to stay with us at the venue?" ?>
             </label>
-            <label class="block text-gray-700 font-semibold mb-2">Will you be staying onsite? <span class="text-red-500">*</span></label>
             <select name="Staying_Onsite" id="Staying_Onsite" class="w-full p-2 border rounded">
                 <option value="">Please select</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="yes">Yes please!</option>
+                <option value="no">Thank you, but we'll make our own arrangements</option>
             </select>
 
             <div id="friday-dinner-container" class="hidden">
-                <label class="block text-gray-700 font-semibold mt-4">Will you be joining us for dinner on Friday evening? <span class="text-red-500">*</span></label>
+                <label class="block text-gray-700 font-semibold mt-4">You have the option to join us for dinner on Friday evening, but you have to be checked in by 6pm. Would you care to join us? <span class="text-red-500">*</span></label>
                 <select name="Friday_Dinner" id="Friday_Dinner" class="w-full p-2 border rounded">
                     <option value="">Please select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
+                    <option value="yes">Dinner sounds great, we'll be there before 6pm</option>
+                    <option value="no">No, we'll sort our own dinner, thanks</option>
                 </select>
             </div>
         </div>
