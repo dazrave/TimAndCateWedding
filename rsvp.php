@@ -28,7 +28,7 @@ $is_solo = ($group_size === 1);
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
-<form method="POST" action="submit_rsvp.php" class="bg-white shadow-lg rounded-lg p-8 w-full max-w-xl space-y-6">
+<form method="POST" action="submit_rsvp.php" class="bg-white shadow-lg rounded-lg p-8 w-full max-w-xl space-y-6" id="rsvp-form">
     <h1 class="text-2xl font-bold text-center text-gray-800 mb-4">RSVP for <?= htmlspecialchars($invite['User_Present_Name']) ?></h1>
 
     <!-- Step 1: Attendance -->
@@ -64,6 +64,7 @@ $is_solo = ($group_size === 1);
     <div id="dietary-container" class="hidden">
         <label for="Dietary_Requirements" class="block text-gray-700 font-semibold mb-2">Do you have any dietary requirements? <span class="text-red-500">*</span></label>
         <textarea name="Dietary_Requirements" id="Dietary_Requirements" rows="3" class="w-full p-2 border rounded" placeholder="If none, please write 'None'"></textarea>
+        <p id="dietary-error" class="text-red-600 text-sm mt-1 hidden">Please provide dietary requirements or write 'None'.</p>
     </div>
 
     <!-- Step 4: Stay Questions (Group 1 & 2) -->
@@ -111,11 +112,13 @@ $is_solo = ($group_size === 1);
     const attendanceSelect = document.getElementById('Attendance_Group');
     const individualDiv = document.getElementById('individual-attendance');
     const dietaryContainer = document.getElementById('dietary-container');
+    const dietaryTextarea = document.getElementById('Dietary_Requirements');
+    const dietaryError = document.getElementById('dietary-error');
     const stayContainer = document.getElementById('stay-container');
     const stayingSelect = document.getElementById('Staying_Onsite');
     const fridayDinnerContainer = document.getElementById('friday-dinner-container');
     const fridayDinnerSelect = document.getElementById('Friday_Dinner');
-    const form = document.querySelector('form');
+    const form = document.getElementById('rsvp-form');
 
     function updateFormVisibility() {
         const attendance = attendanceSelect.value;
@@ -127,10 +130,9 @@ $is_solo = ($group_size === 1);
 
         if (stayingSelect) stayingSelect.removeAttribute('required');
         if (fridayDinnerSelect) fridayDinnerSelect.removeAttribute('required');
+        if (dietaryError) dietaryError.classList.add('hidden');
 
-        if (attendance === 'not_attending') {
-            return;
-        }
+        if (attendance === 'not_attending') return;
 
         if (attendance === 'some_attending') {
             individualDiv.classList.remove('hidden');
@@ -165,13 +167,24 @@ $is_solo = ($group_size === 1);
 
     form.addEventListener('submit', function (e) {
         const attendance = attendanceSelect.value;
+
         if (attendance === 'some_attending') {
             const checkboxes = document.querySelectorAll('input[name="Individual_Attendance[]"]');
             const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
             if (!anyChecked) {
                 alert('Please select at least one person who can attend.');
                 e.preventDefault();
+                return;
             }
+        }
+
+        // 👇 Dietary tooltip logic
+        const isAttending = ['attending', 'some_attending', 'all_attending'].includes(attendance);
+        if (isAttending && dietaryTextarea && dietaryTextarea.value.trim() === '') {
+            e.preventDefault();
+            if (dietaryError) dietaryError.classList.remove('hidden');
+            dietaryTextarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            dietaryTextarea.focus();
         }
     });
 
