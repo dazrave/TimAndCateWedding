@@ -15,15 +15,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
         $data = json_decode($response, true);
         if ($data && $data['status'] === 'success') {
             $_SESSION['invite'] = $data['data'];
-            header('Location: rsvp.php');
-            exit;
+
+            // ✅ New: redirect based on whether RSVP already exists
+            if (!empty($_SESSION['invite']['Attending_Group'])) {
+                header('Location: main.php'); // new scrollable page
+                exit;
+            } else {
+                header('Location: rsvp.php'); // existing RSVP form
+                exit;
+            }
         } else {
             $error_message = "We couldn’t find that code. Please check and try again.";
         }
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,27 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
     </style>
 </head>
 <body class="overflow-x-hidden">
-    <!-- Navigation -->
-    <!--nav class="fixed w-full z-50 bg-white shadow-md">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold text-gray-800 hover:text-be3144 transition duration-300">
-                    <span class="text-be3144">Tim</span> & <span class="text-d2691e">Catherine's Wedding</span>
-                </a>
-                <!--div class="hidden md:flex space-x-8">
-                    <a href="thebigday.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">The Big Day</a>
-                    <a href="travel.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Travel</a>
-                    <a href="venue.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Venue</a>
-                    <a href="rsvp.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">RSVP</a>
-                    <a href="photos.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Photos</a>
-                    <a href="gifts.html" class="nav-link text-gray-700 hover:text-be3144 transition duration-300">Gifts</a>
-                </div>
-                <button class="md:hidden focus:outline-none">
-                    <i data-feather="menu" class="text-gray-700"></i>
-                </button>
-            </div>
-        </div>
-    </nav-->
 
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center text-center text-white hero-gradient">
@@ -129,37 +114,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
             </div>
 
             <div class="mb-8 w-full max-w-xs mx-auto">
-   
-            <form method="POST" action="#login" id="login" class="mb-8 w-full max-w-xs mx-auto">
-    <?php if (!empty($error_message)) : ?>
-        <div class="mb-4 text-red-600 font-medium bg-red-100 p-2 rounded-md text-center">
-            <?= htmlspecialchars($error_message) ?>
+                <form method="POST" action="#login" id="login" class="mb-8 w-full max-w-xs mx-auto">
+                    <?php if (!empty($error_message)) : ?>
+                        <div class="mb-4 text-red-600 font-medium bg-red-100 p-2 rounded-md text-center">
+                            <?= htmlspecialchars($error_message) ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <input
+                        type="text"
+                        name="login_code"
+                        value="<?= htmlspecialchars($login_code) ?>"
+                        placeholder="Enter your code here"
+                        required
+                        class="w-full px-4 py-2 rounded-full placeholder-white text-center text-white font-bold focus:outline-none focus:ring-4 focus:ring-white bg-white/40 border border-white/40 backdrop-blur/80"
+                    >
+
+                    <button
+                        type="submit"
+                        class="mt-4 w-full px-4 py-2 rounded-full text-white font-bold bg-red-600 hover:bg-red-700 transition-all"
+                    >
+                        Continue
+                    </button>
+                </form>
+            </div>
         </div>
-    <?php endif; ?>
-
-    <input
-        type="text"
-        name="login_code"
-        value="<?= htmlspecialchars($login_code) ?>"
-        placeholder="Enter your code here"
-        required
-        class="w-full px-4 py-2 rounded-full placeholder-white text-center text-white font-bold focus:outline-none focus:ring-4 focus:ring-white bg-white/40 border border-white/40 backdrop-blur/80"
-    >
-
-    <button
-        type="submit"
-        class="mt-4 w-full px-4 py-2 rounded-full text-white font-bold bg-red-600 hover:bg-red-700 transition-all"
-    >
-        Continue
-    </button>
-</form>
-</div>
-
-            <!--a href="#rsvp" class="btn-primary text-white font-bold py-3 px-8 rounded-full inline-block shadow-lg">RSVP</a-->
-        </div>
-        
     </section>
-
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
@@ -205,37 +185,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
         setInterval(updateCountdown, 1000);
         updateCountdown();
         
-        // FAQ Toggle
-        function toggleFAQ(num) {
-            const content = document.getElementById(`faq-content-${num}`);
-            const icon = document.getElementById(`faq-icon-${num}`);
-            
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.classList.add('rotate-180');
-            } else {
-                content.classList.add('hidden');
-                icon.classList.remove('rotate-180');
-            }
-        }
-        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
         
         // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
         
         // Initialize Feather Icons
         feather.replace();
