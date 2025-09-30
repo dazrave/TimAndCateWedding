@@ -29,7 +29,11 @@ $is_solo = ($group_size === 1);
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
 <form method="POST" action="submit_rsvp.php" class="bg-white shadow-lg rounded-lg p-8 w-full max-w-xl space-y-6" id="rsvp-form">
-    <h1 class="text-2xl font-bold text-center text-gray-800 mb-4">RSVP for <?= htmlspecialchars($invite['User_Present_Name']) ?></h1>
+    <h1 class="text-2xl font-bold text-center text-gray-800 mb-[-10px]">RSVP for <?= htmlspecialchars($invite['User_Present_Name']) ?></h1>
+    <p class="text-center text-gray-600 italic mt-[-10px] mb-6">
+    Please RSVP by 31st December 2025<br>
+    If we don’t hear from you, we’ll assume you can’t join us
+    </p>
 
     <!-- Step 1: Attendance -->
     <div>
