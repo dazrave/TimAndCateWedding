@@ -1,7 +1,17 @@
 <?php
 session_start();
 $attendance = $_SESSION['rsvp_attendance'] ?? '';
+$group_id = isset($_SESSION['group_id']) ? (int)$_SESSION['group_id'] : 0; // Force to int
 unset($_SESSION['rsvp_attendance']);
+
+$redirectPage = 'index.php';
+if ($group_id === 1) {
+    $redirectPage = 'group1_sections.php';
+} elseif ($group_id === 2) {
+    $redirectPage = 'group2_sections.php';
+} elseif ($group_id === 3) {
+    $redirectPage = 'group3_sections.php';
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +48,8 @@ unset($_SESSION['rsvp_attendance']);
                 With love, Tim & Cate xx
             <?php endif; ?>
         </p>
-        <a href="index.php" class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded transition">
-            Continue to Website
+        <a href="<?= $redirectPage ?>" class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded transition">
+    Continue to Website
         </a>
     </div>
 </body>

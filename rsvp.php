@@ -1,18 +1,21 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_SESSION['rsvp_attendance'] = $_POST['Attendance_Group'] ?? '';
-    header('Location: thankyou.php');
-    exit;
-}
-
+// ✅ Make sure invite is loaded first so $invite exists
 if (!isset($_SESSION['invite'])) {
     header('Location: index.php');
     exit;
 }
 
-$invite = $_SESSION['invite'];
+$invite = $_SESSION['invite']; // ✅ now $invite exists here
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['rsvp_attendance'] = $_POST['Attendance_Group'] ?? '';
+    $_SESSION['group_id'] = $invite['Group_ID']; // ✅ now correctly set
+    header('Location: thankyou.php');
+    exit;
+}
+
 $user_ids = explode(',', $invite['User_ID']);
 $user_names = explode(',', $invite['User_Name']);
 $group_size = count($user_ids);
