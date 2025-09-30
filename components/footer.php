@@ -4,7 +4,7 @@
         <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="mb-6 md:mb-0">
                 <h2 class="text-2xl font-bold">
-                    <span class="text-[#be3144]">Tim</span> & <span class="text-[#d2691e]">Cate</span>
+                    <span class="text-white">Tim & Cate</span>
                 </h2>
                 <p class="text-gray-400 mt-2">10.10.2026</p>
             </div>

@@ -1077,3 +1077,7 @@ Array
     [Final_Notes] => 
     [RSVP_Timestamp] => 2025-09-30 20:44:26
 )
+[2025-09-30 21:26:06] Submitted login code: test1
+[2025-09-30 21:26:12] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"attending","Individual_Attendance":"","Dietary_Requirements":"None","Staying_Onsite":"yes","Friday_Dinner":"yes","Final_Notes":"","RSVP_Timestamp":"2025-09-30T20:38:26.743Z"}}
+[2025-09-30 21:26:12] Decoded API success. Attendance_Group: attending
+[2025-09-30 21:26:12] Redirecting to main.php
