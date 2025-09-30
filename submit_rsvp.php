@@ -2,6 +2,11 @@
 session_start();
 $_SESSION['rsvp_attendance'] = $_POST['Attendance_Group'] ?? '';
 
+// ✅ Also store Group_ID from the original invite session so thankyou.php can use it
+if (isset($_SESSION['invite']['Group_ID'])) {
+    $_SESSION['group_id'] = $_SESSION['invite']['Group_ID'];
+}
+
 // Reject non-POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
