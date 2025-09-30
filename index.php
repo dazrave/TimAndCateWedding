@@ -28,11 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
 
         if ($data && $data['status'] === 'success') {
             log_debug("Decoded API success. Attendance_Group: " . ($data['data']['Attendance_Group'] ?? 'NOT SET'));
-
             $_SESSION['invite'] = $data['data'];
 
-            // ✅ Redirect based on whether they've already RSVP'd
-            if (isset($data['data']['Attendance_Group']) && trim($data['data']['Attendance_Group']) !== '') {
+            if (!empty($data['data']['Attendance_Group'])) {
                 log_debug("Redirecting to main.php");
                 header('Location: main.php');
             } else {
@@ -81,10 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
             backdrop-filter: blur(5px);
         }
 
-        .nav-link:hover {
-            color: #be3144 !important;
-        }
-
         .btn-primary {
             background-color: #be3144;
             transition: all 0.3s ease;
@@ -94,45 +88,43 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
             background-color: #9a2534;
             transform: translateY(-2px);
         }
-
-        .section-divider {
-            height: 80px;
-            background: linear-gradient(to right bottom, #c45400 0%, #c45500 50%, #994900 50%, #994900 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 80px));
-        }
     </style>
 </head>
 
 <body class="overflow-x-hidden">
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center text-center text-white hero-gradient">
-        <div class="absolute inset-0 bg-black opacity-40"></div>
-        <img src="https://stillwatereventcenter.com/wp-content/uploads/2022/09/F6AABA4A-4EE0-4988-ADC1-9DE46EB6DC0C-940x675.jpg" alt="Lake District" class="absolute inset-0 w-full h-full object-cover" />
-        <div class="relative z-10 px-6" data-aos="fade-up">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Tim & Catherine</h1>
-            <p class="text-xl md:text-2xl mb-8">Saturday, 10th October 2026<br>Merewood Country House Hotel, Windermere</p>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center text-white hero-gradient text-center">
+            <div class="absolute inset-0 bg-black opacity-40"></div>
+            <img src="https://stillwatereventcenter.com/wp-content/uploads/2022/09/F6AABA4A-4EE0-4988-ADC1-9DE46EB6DC0C-940x675.jpg" alt="Lake District" class="absolute inset-0 w-full h-full object-cover" />
 
-            <div class="flex justify-center space-x-4 mb-12">
-                <div class="countdown-item rounded-lg p-4 w-20">
-                    <div class="text-3xl font-bold" id="days">00</div>
-                    <div class="text-sm">Days</div>
-                </div>
-                <div class="countdown-item rounded-lg p-4 w-20">
-                    <div class="text-3xl font-bold" id="hours">00</div>
-                    <div class="text-sm">Hours</div>
-                </div>
-                <div class="countdown-item rounded-lg p-4 w-20">
-                    <div class="text-3xl font-bold" id="minutes">00</div>
-                    <div class="text-sm">Minutes</div>
-                </div>
-                <div class="countdown-item rounded-lg p-4 w-20">
-                    <div class="text-3xl font-bold" id="seconds">00</div>
-                    <div class="text-sm">Seconds</div>
-                </div>
-            </div>
+            <div class="relative z-10 px-4 w-full max-w-xl" data-aos="fade-up">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Tim & Catherine</h1>
+                <p class="text-lg sm:text-xl md:text-2xl mb-8 leading-relaxed">
+                    Saturday, 10th October 2026<br>Merewood Country House Hotel, Windermere
+                </p>
 
-            <div class="mb-8 w-full max-w-xs mx-auto">
-                <form method="POST" action="#login" id="login" class="mb-8 w-full max-w-xs mx-auto">
+                <div class="flex justify-center space-x-2 sm:space-x-4 mb-8">
+                    <div class="countdown-item rounded-lg p-3 sm:p-4 w-16 sm:w-20">
+                        <div class="text-xl sm:text-3xl font-bold" id="days">00</div>
+                        <div class="text-xs sm:text-sm">Days</div>
+                    </div>
+                    <div class="countdown-item rounded-lg p-3 sm:p-4 w-16 sm:w-20">
+                        <div class="text-xl sm:text-3xl font-bold" id="hours">00</div>
+                        <div class="text-xs sm:text-sm">Hours</div>
+                    </div>
+                    <div class="countdown-item rounded-lg p-3 sm:p-4 w-16 sm:w-20">
+                        <div class="text-xl sm:text-3xl font-bold" id="minutes">00</div>
+                        <div class="text-xs sm:text-sm">Minutes</div>
+                    </div>
+                    <div class="countdown-item rounded-lg p-3 sm:p-4 w-16 sm:w-20">
+                        <div class="text-xl sm:text-3xl font-bold" id="seconds">00</div>
+                        <div class="text-xs sm:text-sm">Seconds</div>
+                    </div>
+                </div>
+
+                <!-- Login Form -->
+                <form method="POST" action="#login" id="login" class="w-full max-w-xs mx-auto">
                     <?php if (!empty($error_message)) : ?>
                         <div class="mb-4 text-red-600 font-medium bg-red-100 p-2 rounded-md text-center">
                             <?= htmlspecialchars($error_message) ?>
@@ -156,31 +148,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
                     </button>
                 </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <h2 class="text-2xl font-bold">
-                        <span class="text-be3144">Tim</span> & <span class="text-d2691e">Cate</span>
-                    </h2>
-                    <p class="text-gray-400 mt-2">10.10.2026</p>
-                </div>
-
-                <div class="text-center md:text-right">
-                    <p class="text-gray-400">Merewood Country House Hotel</p>
-                    <p class="text-gray-400">Windermere, Lake District, UK</p>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>© 2026 Tim & Cate's Wedding. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include 'components/footer.php'; ?>
 
     <script>
         function updateCountdown() {
