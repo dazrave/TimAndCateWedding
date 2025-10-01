@@ -1,4 +1,3 @@
-<?php include __DIR__ . '/components/header.php'; ?>
 <body class="bg-[#f9f7f0] text-[#333] font-[Montserrat] overflow-x-hidden">
 
 <?php include __DIR__ . '/components/navbar.php'; ?>
