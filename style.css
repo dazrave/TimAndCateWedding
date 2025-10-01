@@ -26,3 +26,79 @@ p {
 .card p:last-child {
 	margin-bottom: 0;
 }
+
+/* RSVP form container */
+.rsvp-container {
+  max-width: 600px;    /* nice width on desktop */
+  width: 100%;         /* fill available width on mobile */
+  margin: 0 auto;      /* center horizontally */
+  padding: 1rem;       /* breathing room inside */
+  box-sizing: border-box;
+}
+
+/* Ensure form inputs scale for mobile */
+.rsvp-container input,
+.rsvp-container select,
+.rsvp-container textarea,
+.rsvp-container button {
+  width: 100%;         /* inputs expand full width */
+  font-size: 1rem;     /* readable on small screens */
+  padding: 0.75rem;    /* larger tap area */
+  margin-bottom: 1rem; /* space between fields */
+  box-sizing: border-box;
+}
+
+/* Make form scrollable if taller than viewport */
+@media (max-height: 700px) {
+  .rsvp-container {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* Optional: slightly bigger text on smaller screens */
+@media (max-width: 480px) {
+  .rsvp-container {
+    font-size: 1.1rem;
+    padding: 1.25rem;
+  }
+}
+
+/* ===========================
+   RSVP Form Container Styles
+   =========================== */
+.rsvp-container {
+  max-width: 600px;       /* nice width on larger screens */
+  width: 100%;            /* fills width on small/mobile screens */
+  margin: 0 auto;         /* center horizontally */
+  padding: 1rem;          /* space inside */
+  box-sizing: border-box; /* padding included in total width */
+}
+
+/* Make form elements fill width and easy to tap */
+.rsvp-container input,
+.rsvp-container select,
+.rsvp-container textarea,
+.rsvp-container button {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+/* Scroll form if it's taller than the viewport */
+@media (max-height: 700px) {
+  .rsvp-container {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* Slightly larger text + padding on very small screens */
+@media (max-width: 480px) {
+  .rsvp-container {
+    font-size: 1.1rem;
+    padding: 1.25rem;
+  }
+}

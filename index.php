@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center text-white hero-gradient text-center">
             <div class="absolute inset-0 bg-black opacity-40"></div>
-            <img src="https://stillwatereventcenter.com/wp-content/uploads/2022/09/F6AABA4A-4EE0-4988-ADC1-9DE46EB6DC0C-940x675.jpg" alt="Lake District" class="absolute inset-0 w-full h-full object-cover" />
+            <img src="/images/autumn_wedding.webp" alt="Lake District" class="absolute inset-0 w-full h-full object-cover" />
 
             <div class="relative z-10 px-4 w-full max-w-xl" data-aos="fade-up">
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Tim & Catherine</h1>

@@ -1081,3 +1081,248 @@ Array
 [2025-09-30 21:26:12] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"attending","Individual_Attendance":"","Dietary_Requirements":"None","Staying_Onsite":"yes","Friday_Dinner":"yes","Final_Notes":"","RSVP_Timestamp":"2025-09-30T20:38:26.743Z"}}
 [2025-09-30 21:26:12] Decoded API success. Attendance_Group: attending
 [2025-09-30 21:26:12] Redirecting to main.php
+[2025-10-01 11:13:19] Submitted login code: FratBro
+[2025-10-01 11:13:23] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"all_attending","Individual_Attendance":"","Dietary_Requirements":"None","Staying_Onsite":"yes","Friday_Dinner":"yes","Final_Notes":"","RSVP_Timestamp":"2025-09-30T20:57:09.082Z"}}
+[2025-10-01 11:13:23] Decoded API success. Attendance_Group: all_attending
+[2025-10-01 11:13:23] Redirecting to main.php
+[2025-10-01 11:13:55] Submitted login code: test1
+[2025-10-01 11:13:58] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 11:13:58] Decoded API success. Attendance_Group: 
+[2025-10-01 11:13:58] Redirecting to rsvp.php
+[2025-10-01 11:18:14] Submitted login code: test1
+[2025-10-01 11:18:18] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 11:18:18] Decoded API success. Attendance_Group: 
+[2025-10-01 11:18:18] Redirecting to rsvp.php
+[2025-10-01 11:30:55] Submitted login code: test1
+[2025-10-01 11:30:58] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 11:30:58] Decoded API success. Attendance_Group: 
+[2025-10-01 11:30:58] Redirecting to rsvp.php
+[2025-10-01 11:37:55] Submitted login code: test1
+[2025-10-01 11:37:57] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 11:37:57] Decoded API success. Attendance_Group: 
+[2025-10-01 11:37:57] Redirecting to rsvp.php
+[2025-10-01 11:38:22] Submitted login code: test1
+[2025-10-01 11:38:26] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 11:38:26] Decoded API success. Attendance_Group: 
+[2025-10-01 11:38:26] Redirecting to rsvp.php
+[2025-10-01 11:39:21] Submitted login code: test1
+[2025-10-01 11:39:26] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 11:39:26] Decoded API success. Attendance_Group: 
+[2025-10-01 11:39:26] Redirecting to rsvp.php
+[2025-10-01 11:40:43] Submitted login code: test1
+[2025-10-01 11:40:47] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 11:40:47] Decoded API success. Attendance_Group: 
+[2025-10-01 11:40:47] Redirecting to rsvp.php
+[2025-10-01 11:45:35] Submitted login code: test1
+[2025-10-01 11:45:38] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 11:45:38] Decoded API success. Attendance_Group: 
+[2025-10-01 11:45:38] Redirecting to rsvp.php
+[2025-10-01 11:45:38] Submitted login code: test1
+[2025-10-01 11:45:42] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 11:45:42] Decoded API success. Attendance_Group: 
+[2025-10-01 11:45:42] Redirecting to rsvp.php
+[2025-10-01 11:46:37] Submitted login code: test1
+[2025-10-01 11:46:42] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 11:46:42] Decoded API success. Attendance_Group: 
+[2025-10-01 11:46:42] Redirecting to rsvp.php
+[2025-10-01 12:21:53] Submitted login code: test1
+[2025-10-01 12:21:56] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 12:21:56] Decoded API success. Attendance_Group: 
+[2025-10-01 12:21:56] Redirecting to rsvp.php
+[2025-10-01 12:23:15] Submitted login code: test4
+[2025-10-01 12:23:18] API response: {"status":"success","data":{"Invite_ID":"INV1046","Login_Code":"test4","User_ID":"1067, 1068","User_Name":"Test4 User4, Test5 User5","User_Present_Name":"Tester pair subbed","Group_ID":2,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 12:23:18] Decoded API success. Attendance_Group: 
+[2025-10-01 12:23:18] Redirecting to rsvp.php
+[2025-10-01 12:49:39] Submitted login code: test1
+[2025-10-01 12:49:44] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 12:49:44] Decoded API success. Attendance_Group: 
+[2025-10-01 12:49:44] Redirecting to rsvp.php
+[2025-10-01 12:53:15] Submitted login code: test1
+[2025-10-01 12:53:19] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 12:53:19] Decoded API success. Attendance_Group: 
+[2025-10-01 12:53:19] Redirecting to rsvp.php
+[2025-10-01 12:54:31] Submitted login code: test1
+[2025-10-01 12:54:34] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 12:54:34] Decoded API success. Attendance_Group: 
+[2025-10-01 12:54:34] Redirecting to rsvp.php
+[2025-10-01 12:56:11] Submitted login code: test1
+[2025-10-01 12:56:16] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 12:56:16] Decoded API success. Attendance_Group: 
+[2025-10-01 12:56:16] Redirecting to rsvp.php
+[2025-10-01 12:58:44] Submitted login code: test1
+[2025-10-01 12:58:47] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 12:58:47] Decoded API success. Attendance_Group: 
+[2025-10-01 12:58:47] Redirecting to rsvp.php
+[2025-10-01 12:58:47] Submitted login code: test1
+[2025-10-01 12:58:52] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 12:58:52] Decoded API success. Attendance_Group: 
+[2025-10-01 12:58:52] Redirecting to rsvp.php
+[2025-10-01 13:01:04] Submitted login code: test1
+[2025-10-01 13:01:07] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:01:07] Decoded API success. Attendance_Group: 
+[2025-10-01 13:01:07] Redirecting to rsvp.php
+[2025-10-01 13:02:49] Submitted login code: test1
+[2025-10-01 13:02:53] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:02:53] Decoded API success. Attendance_Group: 
+[2025-10-01 13:02:53] Redirecting to rsvp.php
+[2025-10-01 13:03:44] Submitted login code: test1
+[2025-10-01 13:03:47] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:03:47] Decoded API success. Attendance_Group: 
+[2025-10-01 13:03:47] Redirecting to rsvp.php
+[2025-10-01 13:04:59] Submitted login code: test1
+[2025-10-01 13:05:01] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:05:01] Decoded API success. Attendance_Group: 
+[2025-10-01 13:05:01] Redirecting to rsvp.php
+[2025-10-01 13:07:19] Submitted login code: test1
+[2025-10-01 13:07:24] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:07:24] Decoded API success. Attendance_Group: 
+[2025-10-01 13:07:24] Redirecting to rsvp.php
+[2025-10-01 13:09:31] Submitted login code: test1
+[2025-10-01 13:09:44] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:09:44] Decoded API success. Attendance_Group: 
+[2025-10-01 13:09:44] Redirecting to rsvp.php
+[2025-10-01 13:11:23] Submitted login code: test1
+[2025-10-01 13:11:26] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:11:26] Decoded API success. Attendance_Group: 
+[2025-10-01 13:11:26] Redirecting to rsvp.php
+[2025-10-01 13:13:30] Submitted login code: test1
+[2025-10-01 13:13:32] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:13:32] Decoded API success. Attendance_Group: 
+[2025-10-01 13:13:32] Redirecting to rsvp.php
+[2025-10-01 13:14:33] Submitted login code: test1
+[2025-10-01 13:14:38] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:14:38] Decoded API success. Attendance_Group: 
+[2025-10-01 13:14:38] Redirecting to rsvp.php
+[2025-10-01 13:17:14] Submitted login code: test1
+[2025-10-01 13:17:17] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:17:17] Decoded API success. Attendance_Group: 
+[2025-10-01 13:17:17] Redirecting to rsvp.php
+[2025-10-01 13:17:27] Submitted login code: FratBro
+[2025-10-01 13:17:29] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:17:29] Decoded API success. Attendance_Group: 
+[2025-10-01 13:17:29] Redirecting to rsvp.php
+[2025-10-01 13:20:16] Submitted login code: FratBro
+[2025-10-01 13:20:20] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:20:20] Decoded API success. Attendance_Group: 
+[2025-10-01 13:20:20] Redirecting to rsvp.php
+[2025-10-01 13:21:27] Submitted login code: FratBro
+[2025-10-01 13:21:30] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:21:30] Decoded API success. Attendance_Group: 
+[2025-10-01 13:21:30] Redirecting to rsvp.php
+[2025-10-01 13:25:48] Submitted login code: FratBro
+[2025-10-01 13:25:50] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:25:50] Decoded API success. Attendance_Group: 
+[2025-10-01 13:25:50] Redirecting to rsvp.php
+[2025-10-01 13:27:45] Submitted login code: FratBro
+[2025-10-01 13:28:03] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:28:03] Decoded API success. Attendance_Group: 
+[2025-10-01 13:28:03] Redirecting to rsvp.php
+[2025-10-01 13:32:16] Submitted login code: FratBro
+[2025-10-01 13:32:20] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:32:20] Decoded API success. Attendance_Group: 
+[2025-10-01 13:32:20] Redirecting to rsvp.php
+[2025-10-01 13:34:15] Submitted login code: FratBro
+[2025-10-01 13:34:19] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:34:19] Decoded API success. Attendance_Group: 
+[2025-10-01 13:34:19] Redirecting to rsvp.php
+[2025-10-01 13:36:57] Submitted login code: FratBro
+[2025-10-01 13:37:00] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:37:00] Decoded API success. Attendance_Group: 
+[2025-10-01 13:37:00] Redirecting to rsvp.php
+[2025-10-01 13:43:29] Submitted login code: FratBro
+[2025-10-01 13:43:32] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:43:32] Decoded API success. Attendance_Group: 
+[2025-10-01 13:43:32] Redirecting to rsvp.php
+Array
+(
+    [Attendance_Group] => all_attending
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [Invite_ID] => INV1013
+    [Login_Code] => FratBro
+)
+Array
+(
+    [Invite_ID] => INV1013
+    [Login_Code] => FratBro
+    [Attendance_Group] => all_attending
+    [Individual_Attendance] => Array
+        (
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-10-01 13:43:49
+)
+[2025-10-01 13:45:02] Submitted login code: test1
+[2025-10-01 13:45:07] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:45:07] Decoded API success. Attendance_Group: 
+[2025-10-01 13:45:07] Redirecting to rsvp.php
+[2025-10-01 13:45:22] Submitted login code: test4
+[2025-10-01 13:45:27] API response: {"status":"success","data":{"Invite_ID":"INV1046","Login_Code":"test4","User_ID":"1067, 1068","User_Name":"Test4 User4, Test5 User5","User_Present_Name":"Tester pair subbed","Group_ID":2,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:45:27] Decoded API success. Attendance_Group: 
+[2025-10-01 13:45:27] Redirecting to rsvp.php
+Array
+(
+    [Attendance_Group] => some_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => None
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => no
+    [Final_Notes] => 
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+)
+Array
+(
+    [Invite_ID] => INV1046
+    [Login_Code] => test4
+    [Attendance_Group] => some_attending
+    [Individual_Attendance] => Array
+        (
+            [0] => 1067
+        )
+
+    [Dietary_Requirements] => None
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => no
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-10-01 13:45:40
+)
+[2025-10-01 13:51:20] Submitted login code: test1
+[2025-10-01 13:51:23] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 13:51:23] Decoded API success. Attendance_Group: 
+[2025-10-01 13:51:23] Redirecting to rsvp.php
+Array
+(
+    [Attendance_Group] => attending
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [Invite_ID] => INV1043
+    [Login_Code] => test1
+)
+Array
+(
+    [Invite_ID] => INV1043
+    [Login_Code] => test1
+    [Attendance_Group] => attending
+    [Individual_Attendance] => Array
+        (
+        )
+
+    [Dietary_Requirements] => none
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-10-01 13:51:41
+)
