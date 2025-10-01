@@ -1,7 +1,5 @@
 <body class="bg-[#f9f7f0] text-[#333] font-[Montserrat] overflow-x-hidden">
 
-<?php include __DIR__ . '/components/navbar.php'; ?>
-
 <!-- Venue Section -->
 <section id="venue" class="py-20 bg-white mt-16">
     <div class="container mx-auto px-6">

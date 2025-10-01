@@ -1,4 +1,4 @@
-<?php include('components/navbar.php'); ?>
+
 
 <!-- Travel Section -->
 <section id="travel" class="py-20 bg-white">

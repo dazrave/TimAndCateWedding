@@ -1,4 +1,4 @@
-<?php include('components/navbar.php'); ?>
+
 
 <!-- The Big Day Section -->
 <section id="thebigday" class="py-20 bg-gray-50 mt-16">

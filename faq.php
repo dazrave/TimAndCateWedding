@@ -1,4 +1,4 @@
-<?php include('components/navbar.php'); ?>
+
 
 <!-- FAQ Section -->
 <section class="py-20 bg-gray-50 mt-16">

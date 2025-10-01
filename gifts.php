@@ -1,6 +1,4 @@
-<?php 
-    include 'components/navbar.php'; 
-?>
+
 
 <!-- Gift Section -->
 <section class="py-20 bg-white mt-16">

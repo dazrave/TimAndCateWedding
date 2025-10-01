@@ -1,6 +1,4 @@
-<?php 
-    include 'components/navbar.php'; 
-?>
+
 
 <!-- Photos Section -->
 <section class="py-20 bg-gray-50 mt-16">
