@@ -60,6 +60,7 @@ $userName = $_SESSION['invite']['User_Present_Name'] ?? 'Guest';
             include __DIR__ . '/thebigday.php';
             include __DIR__ . '/faq.php';
             include __DIR__ . '/gifts.php';
+            include __DIR__ . '/photos.php';
             break;
     }
     ?>
