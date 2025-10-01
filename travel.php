@@ -11,7 +11,7 @@
 
     <div class="flex flex-col md:flex-row items-center mb-16">
       <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10" data-aos="fade-right">
-        <img src="https://www.therowleyestates.com/wp-content/uploads/2023/08/drives-honnister-pass-road-lake-district.jpg" alt="Merewood Country House Hotel" class="rounded-lg shadow-xl" />
+        <img src="images/travel01.webp" alt="Merewood Country House Hotel" class="rounded-lg shadow-xl" />
       </div>
       <div class="md:w-1/2" data-aos="fade-left">
         <h3 class="text-2xl font-bold text-gray-800 mb-4">Merewood Country House Hotel</h3>
