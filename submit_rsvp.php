@@ -1,11 +1,17 @@
 <?php
 session_start();
-$_SESSION['rsvp_attendance'] = $_POST['Attendance_Group'] ?? '';
 
-// ✅ Also store Group_ID from the original invite session so thankyou.php can use it
-if (isset($_SESSION['invite']['Group_ID'])) {
-    $_SESSION['group_id'] = $_SESSION['invite']['Group_ID'];
+// ✅ Make sure invite is still present
+if (!isset($_SESSION['invite'])) {
+    header('Location: index.php');
+    exit;
 }
+
+$invite = $_SESSION['invite'];
+
+// Store RSVP choices in session
+$_SESSION['rsvp_attendance'] = $_POST['Attendance_Group'] ?? '';
+$_SESSION['group_id'] = $invite['Group_ID'] ?? null;
 
 // Reject non-POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -72,7 +78,7 @@ if (!empty($errors)) {
     exit;
 }
 
-// ✅ Build final data array
+// ✅ Build final data array for Google Sheets
 $data = [
     'Invite_ID' => $invite_id,
     'Login_Code' => $login_code,
@@ -105,6 +111,8 @@ curl_close($ch);
 
 // Success or failure handling
 if ($http_status === 200) {
+    // ✅ Keep $_SESSION['invite'] alive for main.php
+    $_SESSION['invite'] = $invite;
     header('Location: thankyou.php');
     exit;
 } else {
