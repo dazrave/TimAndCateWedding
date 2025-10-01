@@ -1,5 +1,3 @@
-
-
 <!-- Photos Section -->
 <section class="py-20 bg-gray-50 mt-16">
     <div class="container mx-auto px-6">
