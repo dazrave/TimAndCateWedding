@@ -1,9 +1,11 @@
 <?php
 session_start();
-$attendance = $_SESSION['rsvp_attendance'] ?? '';
-unset($_SESSION['rsvp_attendance']);
 
-// Always redirect to main.php now – Group_ID will still be in session if needed
+// Keep invite + group_id alive, only clear the temporary RSVP field
+$attendance = $_SESSION['rsvp_attendance'] ?? '';
+unset($_SESSION['rsvp_attendance']); 
+
+// Always redirect to main.php now – Group_ID and Invite will still be in session
 $redirectPage = 'main.php';
 ?>
 
@@ -42,7 +44,8 @@ $redirectPage = 'main.php';
                 With love, Tim & Cate xx
             <?php endif; ?>
         </p>
-        <a href="<?= $redirectPage ?>" class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded transition text-sm sm:text-base">
+        <a href="<?= $redirectPage ?>" 
+           class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded transition text-sm sm:text-base">
             Continue to Website
         </a>
     </div>
