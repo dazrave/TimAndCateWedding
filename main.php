@@ -1,6 +1,14 @@
 <?php
 session_start();
 
+// TEMP DEBUG
+file_put_contents('session_debug.txt', print_r($_SESSION, true));
+
+if (!isset($_SESSION['invite'])) {
+    header('Location: index.php');
+    exit;
+}
+
 // Redirect to index if no invite data
 if (!isset($_SESSION['invite'])) {
     header('Location: index.php');
