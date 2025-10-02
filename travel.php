@@ -1,5 +1,5 @@
 <!-- Travel Section -->
-<section id="travel" class="py-20 bg-gray-50 mt-16">
+<section id="travel" class="py-10 bg-gray-50 mt-10">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Travel & Accommodation</h2>

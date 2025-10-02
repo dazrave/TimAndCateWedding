@@ -1,5 +1,5 @@
 <!-- FAQ Section -->
-<section id="faq" class="py-20 bg-gray-50 mt-16">
+<section id="faq" class="py-10 bg-gray-50 mt-10">
   <div class="container mx-auto px-6">
     <!-- Title -->
     <div class="text-center mb-16">

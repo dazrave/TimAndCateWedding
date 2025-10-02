@@ -1,5 +1,5 @@
 <!-- Venue Weekend Section -->
-<section id="venue_weekend" class="py-20 bg-white mt-16">
+<section id="venue_weekend" class="py-10 bg-white mt-10">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">The Weekend</h2>

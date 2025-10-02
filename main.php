@@ -36,9 +36,9 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite !== 'yes') {
     */ ?>
 
     <!-- Welcome Banner -->
-    <section class="text-center py-8 px-4 sm:px-6">
+    <section class="text-center py-4 px-4 sm:px-6">
         <div class="max-w-3xl mx-auto">
-            <h1 class="text-3xl md:text-5xl font-bold font-[Playfair Display] mb-3 leading-tight text-gray-900 drop-shadow-sm">
+            <h1 class="text-3xl md:text-5xl font-bold font-[Playfair Display] mb-2 leading-tight text-gray-900 drop-shadow-sm">
                 Welcome, <?= htmlspecialchars($userName) ?>!
             </h1>
             <p class="text-base md:text-lg text-[#666] leading-relaxed">
@@ -51,7 +51,6 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite !== 'yes') {
     <?php
     switch ($effectiveGroup) {
         case 1:
-            // Fully funded guests: show all sections
             include __DIR__ . '/venue.php';
             include __DIR__ . '/venue_weekend.php';
             include __DIR__ . '/travel.php';
@@ -62,7 +61,6 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite !== 'yes') {
             break;
 
         case 2:
-            // Subsidised guests: show all sections + (later) payment info
             include __DIR__ . '/venue.php';
             include __DIR__ . '/venue_weekend.php';
             include __DIR__ . '/travel.php';
@@ -74,7 +72,6 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite !== 'yes') {
 
         case 3:
         default:
-            // Day guests only: restricted sections
             include __DIR__ . '/venue.php';
             include __DIR__ . '/thebigday.php';
             include __DIR__ . '/faq.php';

@@ -1,5 +1,5 @@
 <!-- Venue Section -->
-<section id="venue" class="py-20 bg-white mt-16">
+<section id="venue" class="py-10 bg-white mt-10">
   <div class="container mx-auto px-6">
     <!-- Title -->
     <div class="text-center mb-16">

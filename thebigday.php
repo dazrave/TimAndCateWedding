@@ -1,5 +1,5 @@
 <!-- The Big Day Section -->
-<section id="thebigday" class="py-20 bg-gray-50 mt-16">
+<section id="thebigday" class="py-10 bg-gray-50 mt-10">
   <div class="container mx-auto px-6">
     <!-- Title -->
     <div class="text-center mb-16">
@@ -73,7 +73,7 @@
 </section>
 
 <!-- Entertainment Section -->
-<section id="entertainment" class="py-20 bg-white">
+<section id="entertainment" class="py-10 bg-white">
   <div class="container mx-auto px-6">
     <!-- Title -->
     <div class="text-center mb-16">

@@ -1,5 +1,5 @@
 <!-- Gift Section -->
-<section id="gifts" class="py-20 bg-gray-50 mt-16">
+<section id="gifts" class="py-10 bg-gray-50 mt-10">
   <div class="container mx-auto px-6">
     <!-- Title -->
     <div class="text-center mb-16">
