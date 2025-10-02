@@ -8,7 +8,7 @@
         
         <div class="flex flex-col md:flex-row items-center mb-16">
             <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10" data-aos="fade-right">
-                <img src="https://italy4real.com/wp-content/uploads/2015/10/sebastian-leonhardt-PkWac9CLWVA-unsplash-1.jpg" alt="Merewood Country House Hotel" class="rounded-lg shadow-xl">
+                <img src="images/gifts01.webp" alt="Merewood Country House Hotel" class="rounded-lg shadow-xl">
             </div>
             <div class="md:w-1/2" data-aos="fade-left">
                 <h3 class="text-2xl font-bold text-gray-800 mb-4">Gifts</h3>

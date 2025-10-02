@@ -11,7 +11,11 @@ $invite = $_SESSION['invite'];
 
 // Store RSVP choices in session
 $_SESSION['rsvp_attendance'] = $_POST['Attendance_Group'] ?? '';
-$_SESSION['group_id'] = $invite['Group_ID'] ?? null;
+
+// ✅ Also store Group_ID from the original invite session so thankyou.php/main.php can use it
+if (isset($_SESSION['invite']['Group_ID'])) {
+    $_SESSION['group_id'] = $_SESSION['invite']['Group_ID'];
+}
 
 // Reject non-POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -90,6 +94,17 @@ $data = [
     'Final_Notes' => $final_notes,
     'RSVP_Timestamp' => $timestamp,
 ];
+
+// ✅ Update session so main.php can use RSVP responses
+if (isset($_SESSION['invite'])) {
+    $_SESSION['invite']['Attendance_Group'] = $attendance_group;
+    $_SESSION['invite']['Individual_Attendance'] = $individual_attendance;
+    $_SESSION['invite']['Dietary_Requirements'] = $dietary_requirements;
+    $_SESSION['invite']['Staying_Onsite'] = $staying_onsite;
+    $_SESSION['invite']['Friday_Dinner'] = $friday_dinner;
+    $_SESSION['invite']['Final_Notes'] = $final_notes;
+    $_SESSION['invite']['RSVP_Timestamp'] = $timestamp;
+}
 
 // TEMP: Write to debug log for verification
 file_put_contents('debug_log.txt', print_r($_POST, true), FILE_APPEND);
