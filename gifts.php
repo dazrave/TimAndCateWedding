@@ -1,10 +1,10 @@
 <!-- Gift Section -->
-<section class="py-20 bg-gray-50 mt-16">
+<section id="gifts" class="py-20 bg-gray-50 mt-16">
   <div class="container mx-auto px-6">
     <!-- Title -->
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Gifts</h2>
-      <div class="w-24 h-1 bg-[#be3144] mx-auto"></div>
+      <div class="w-24 h-1 mx-auto" style="background-color: #be3144;"></div>
     </div>
 
     <div class="flex flex-col md:flex-row items-center gap-12">
@@ -29,6 +29,7 @@
 
           <!-- Gift Links as Cards -->
           <div class="grid sm:grid-cols-3 gap-4">
+            
             <!-- PayPal -->
             <a href="https://www.google.com" target="_blank"
               class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02]">
@@ -43,12 +44,12 @@
               <span class="font-semibold text-gray-800">Monzo</span>
             </a>
 
-            <!-- Bank Transfer (Expandable) -->
+            <!-- Bank Transfer (Expandable Card) -->
             <div onclick="toggleBankDetails()" 
                  class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
               <i data-feather="send" class="w-8 h-8 text-[#be3144] mb-3"></i>
               <span class="font-semibold text-gray-800">Bank Transfer</span>
-              <div id="bank-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1">
+              <div id="bank-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
                 <p><span class="font-semibold">Name:</span> Me</p>
                 <p><span class="font-semibold">Sort Code:</span> 11-11-11</p>
                 <p><span class="font-semibold">Account Number:</span> 12345678</p>
@@ -67,7 +68,11 @@
   function toggleBankDetails() {
     const details = document.getElementById('bank-details');
     details.classList.toggle('hidden');
-    details.classList.toggle('animate-fadeIn');
+    if (!details.classList.contains('hidden')) {
+      details.classList.add('animate-fadeIn');
+    } else {
+      details.classList.remove('animate-fadeIn');
+    }
   }
 </script>
 

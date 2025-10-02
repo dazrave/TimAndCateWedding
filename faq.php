@@ -1,18 +1,19 @@
 <!-- FAQ Section -->
-<section class="py-20 bg-gray-50 mt-16">
+<section id="faq" class="py-20 bg-gray-50 mt-16">
   <div class="container mx-auto px-6">
     <!-- Title -->
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
-      <div class="w-24 h-1 bg-[#be3144] mx-auto"></div>
+      <div class="w-24 h-1 mx-auto" style="background-color: #be3144;"></div>
     </div>
 
+    <!-- FAQ List -->
     <div class="max-w-3xl mx-auto space-y-6" data-aos="fade-up">
-
+      
       <!-- FAQ Card -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden transition transform hover:scale-[1.01]">
-        <button class="w-full flex items-center justify-between p-6 focus:outline-none faq-toggle">
-          <h3 class="font-bold text-gray-800 text-left">What's the dress code?</h3>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none faq-toggle">
+          <h3 class="font-bold text-gray-800">What's the dress code?</h3>
           <i data-feather="chevron-down" class="text-[#be3144] transition-transform duration-300"></i>
         </button>
         <div class="faq-content hidden px-6 pb-6 text-gray-600">
@@ -21,9 +22,9 @@
       </div>
 
       <!-- FAQ Card -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden transition transform hover:scale-[1.01]">
-        <button class="w-full flex items-center justify-between p-6 focus:outline-none faq-toggle">
-          <h3 class="font-bold text-gray-800 text-left">What about dietary requirements?</h3>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none faq-toggle">
+          <h3 class="font-bold text-gray-800">What about dietary requirements?</h3>
           <i data-feather="chevron-down" class="text-[#be3144] transition-transform duration-300"></i>
         </button>
         <div class="faq-content hidden px-6 pb-6 text-gray-600">
@@ -32,9 +33,9 @@
       </div>
 
       <!-- FAQ Card -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden transition transform hover:scale-[1.01]">
-        <button class="w-full flex items-center justify-between p-6 focus:outline-none faq-toggle">
-          <h3 class="font-bold text-gray-800 text-left">Are children invited?</h3>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none faq-toggle">
+          <h3 class="font-bold text-gray-800">Are children invited?</h3>
           <i data-feather="chevron-down" class="text-[#be3144] transition-transform duration-300"></i>
         </button>
         <div class="faq-content hidden px-6 pb-6 text-gray-600">
@@ -43,9 +44,9 @@
       </div>
 
       <!-- FAQ Card -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden transition transform hover:scale-[1.01]">
-        <button class="w-full flex items-center justify-between p-6 focus:outline-none faq-toggle">
-          <h3 class="font-bold text-gray-800 text-left">What about gifts?</h3>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none faq-toggle">
+          <h3 class="font-bold text-gray-800">What about gifts?</h3>
           <i data-feather="chevron-down" class="text-[#be3144] transition-transform duration-300"></i>
         </button>
         <div class="faq-content hidden px-6 pb-6 text-gray-600">

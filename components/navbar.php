@@ -1,60 +1,34 @@
-<?php
-// navbar.php
-
-// Work out what sections to display based on effective group
-$navLinks = [];
-
-switch ($effectiveGroup ?? 3) {
-    case 1:
-    case 2:
-        // Weekend guests
-        $navLinks = [
-            "venue" => "Venue",
-            "travel" => "Travel",
-            "thebigday" => "The Big Day",
-            "faq" => "FAQ",
-            "gifts" => "Gifts",
-            "photos" => "Photos",
-        ];
-        break;
-
-    case 3:
-    default:
-        // Day guests only
-        $navLinks = [
-            "venue" => "Venue",
-            "thebigday" => "The Big Day",
-            "faq" => "FAQ",
-            "gifts" => "Gifts",
-            "photos" => "Photos",
-        ];
-        break;
-}
-?>
-
 <nav class="sticky top-0 bg-white shadow-md z-50 px-6 py-4 flex justify-between items-center">
-    <div class="font-bold text-lg">Tim & Cate's Wedding</div>
+  <div class="font-bold text-lg">Tim & Cate's Wedding</div>
 
-    <!-- Desktop menu -->
-    <div class="space-x-4 hidden md:block">
-        <?php foreach ($navLinks as $id => $label): ?>
-            <a href="#<?= $id ?>" class="hover:text-[#be3144]"><?= htmlspecialchars($label) ?></a>
-        <?php endforeach; ?>
-        <a href="rsvp.php" class="text-[#be3144] font-bold underline">Change RSVP</a>
-    </div>
+  <!-- Desktop Links -->
+  <div class="space-x-4 hidden md:block">
+    <a href="#venue" class="hover:text-[#be3144]">Venue</a>
+    <a href="#travel" class="hover:text-[#be3144]">Travel</a>
+    <a href="#thebigday" class="hover:text-[#be3144]">The Big Day</a>
+    <a href="#faq" class="hover:text-[#be3144]">FAQ</a>
+    <a href="#gifts" class="hover:text-[#be3144]">Gifts</a>
+    <a href="#photos" class="hover:text-[#be3144]">Photos</a>
+    <a href="rsvp.php" class="text-[#be3144] font-bold underline">Change RSVP</a>
+  </div>
 
-    <!-- Mobile button -->
-    <button id="menu-toggle" class="md:hidden focus:outline-none">
-        <i data-feather="menu" class="text-gray-700"></i>
-    </button>
+  <!-- Hamburger -->
+  <button id="menu-toggle" class="md:hidden focus:outline-none">
+    <i data-feather="menu" class="text-gray-700"></i>
+  </button>
 </nav>
 
-<!-- Mobile dropdown -->
-<div id="mobile-menu" class="hidden bg-white shadow-md px-6 py-4 space-y-3 md:hidden">
-    <?php foreach ($navLinks as $id => $label): ?>
-        <a href="#<?= $id ?>" class="block text-gray-800 hover:text-[#be3144]"><?= htmlspecialchars($label) ?></a>
-    <?php endforeach; ?>
-    <a href="rsvp.php" class="block text-[#be3144] font-bold underline">Change RSVP</a>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden bg-white shadow-md md:hidden">
+  <div class="flex flex-col space-y-4 p-4">
+    <a href="#venue" class="hover:text-[#be3144]">Venue</a>
+    <a href="#travel" class="hover:text-[#be3144]">Travel</a>
+    <a href="#thebigday" class="hover:text-[#be3144]">The Big Day</a>
+    <a href="#faq" class="hover:text-[#be3144]">FAQ</a>
+    <a href="#gifts" class="hover:text-[#be3144]">Gifts</a>
+    <a href="#photos" class="hover:text-[#be3144]">Photos</a>
+    <a href="rsvp.php" class="text-[#be3144] font-bold underline">Change RSVP</a>
+  </div>
 </div>
 
 <script>
@@ -66,9 +40,28 @@ switch ($effectiveGroup ?? 3) {
     mobileMenu.classList.toggle('hidden');
   });
 
-  // Close mobile menu when clicking a link
+  function scrollToSection(id) {
+    const target = document.getElementById(id);
+    if (target) {
+      const headerOffset = 80; // sticky nav height
+      const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  }
+
   menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const sectionId = href.substring(1); // remove #
+        scrollToSection(sectionId);
+      }
       mobileMenu.classList.add('hidden');
     });
   });
