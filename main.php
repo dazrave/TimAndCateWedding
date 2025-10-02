@@ -26,19 +26,25 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite !== 'yes') {
     <?php include __DIR__ . '/components/navbar.php'; ?>
 
     <!-- Group Label Banner (Optional Debug / Group Visual) -->
-    <?php if ($groupId): ?>
+    <?php /*
+    if ($groupId): ?>
         <div class="bg-red-700 text-white text-center py-4 text-xl font-bold">
             You are Group <?= htmlspecialchars($groupId) ?> 
             (Effective Group <?= htmlspecialchars($effectiveGroup) ?>)
         </div>
-    <?php endif; ?>
+    <?php endif;
+    */ ?>
 
     <!-- Welcome Banner -->
-    <section class="text-center py-12 px-6">
-        <h1 class="text-3xl md:text-5xl font-bold font-[Playfair Display] mb-4">
-            Welcome, <?= htmlspecialchars($userName) ?>!
-        </h1>
-        <p class="text-lg text-[#666]">We're so excited to celebrate with you. Scroll down for everything you need to know.</p>
+    <section class="text-center py-8 px-4 sm:px-6">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl md:text-5xl font-bold font-[Playfair Display] mb-3 leading-tight text-gray-900 drop-shadow-sm">
+                Welcome, <?= htmlspecialchars($userName) ?>!
+            </h1>
+            <p class="text-base md:text-lg text-[#666] leading-relaxed">
+                We're so excited to celebrate with you. Scroll down for everything you need to know.
+            </p>
+        </div>
     </section>
 
     <!-- Dynamic Content Based on Effective Group -->

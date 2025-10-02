@@ -10,5 +10,5 @@
     });
 
     // Replace icons with Feather
-    feather.replace();
+    feather.replace({ 'stroke-width': 2 }); 
 </script>

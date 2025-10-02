@@ -1,39 +1,82 @@
 <!-- Gift Section -->
-<section class="py-20 bg-white mt-16">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Gifts</h2>
-            <div class="w-24 h-1 bg-be3144 mx-auto"></div>
-        </div>
-        
-        <div class="flex flex-col md:flex-row items-center mb-16">
-            <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10" data-aos="fade-right">
-                <img src="images/gifts01.webp" alt="Merewood Country House Hotel" class="rounded-lg shadow-xl">
-            </div>
-            <div class="md:w-1/2" data-aos="fade-left">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Gifts</h3>
-                <p class="text-gray-600 mb-6">
-                    Our Honeymoon will come a little later, once Phoebe's a bit older. 
-                    We're dreaming of a week in the Tuscan hills, followed by an Italian road trip ending with some time to unwind on the southern coast.
-                </p>
-                
-                <div class="mb-6">
-                    <h2 class="font-bold text-gray-800 mb-4">Donations</h2>
-                    <p class="text-gray-600">
-                        Truly, your presence at our wedding is the greatest gift of all. 
-                        However, if you'd like to contribute to our honeymoon, please use the links below:
-                    </p>
-                    <p class="text-gray-600 mt-2">
-                        <a href="https://www.google.com" class="underline hover:text-be3144">PAYPAL</a><br>
-                        <a href="https://www.google.com" class="underline hover:text-be3144">MONZO</a><br>
-                        <a href="https://www.google.com" class="underline hover:text-be3144">BANK TRANSFER</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+<section class="py-20 bg-gray-50 mt-16">
+  <div class="container mx-auto px-6">
+    <!-- Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Gifts</h2>
+      <div class="w-24 h-1 bg-[#be3144] mx-auto"></div>
     </div>
+
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <!-- Image -->
+      <div class="md:w-1/2" data-aos="fade-right">
+        <img src="images/gifts01.webp" alt="Tuscan honeymoon inspiration" class="rounded-2xl shadow-xl w-full" />
+      </div>
+
+      <!-- Content -->
+      <div class="md:w-1/2 space-y-6" data-aos="fade-left">
+        <h3 class="text-2xl font-bold text-gray-800">A Little Note on Gifts</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Our honeymoon will come a little later, once Phoebe's a bit older. We're dreaming of a week in the Tuscan hills, 
+          followed by an Italian road trip ending with some time to unwind on the southern coast.
+        </p>
+
+        <div>
+          <h4 class="text-xl font-bold text-gray-800 mb-3">Donations</h4>
+          <p class="text-gray-600 mb-6">
+            Your presence at our wedding is the greatest gift of all. But if you’d like to contribute to our honeymoon, here are some options:
+          </p>
+
+          <!-- Gift Links as Cards -->
+          <div class="grid sm:grid-cols-3 gap-4">
+            <!-- PayPal -->
+            <a href="https://www.google.com" target="_blank"
+              class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02]">
+              <i data-feather="credit-card" class="w-8 h-8 text-[#be3144] mb-3"></i>
+              <span class="font-semibold text-gray-800">PayPal</span>
+            </a>
+
+            <!-- Monzo -->
+            <a href="https://www.google.com" target="_blank"
+              class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02]">
+              <i data-feather="smartphone" class="w-8 h-8 text-[#be3144] mb-3"></i>
+              <span class="font-semibold text-gray-800">Monzo</span>
+            </a>
+
+            <!-- Bank Transfer (Expandable) -->
+            <div onclick="toggleBankDetails()" 
+                 class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
+              <i data-feather="send" class="w-8 h-8 text-[#be3144] mb-3"></i>
+              <span class="font-semibold text-gray-800">Bank Transfer</span>
+              <div id="bank-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1">
+                <p><span class="font-semibold">Name:</span> Me</p>
+                <p><span class="font-semibold">Sort Code:</span> 11-11-11</p>
+                <p><span class="font-semibold">Account Number:</span> 12345678</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<?php 
-    include 'components/scripts.php'; 
-?>
+<?php include 'components/scripts.php'; ?>
+
+<script>
+  function toggleBankDetails() {
+    const details = document.getElementById('bank-details');
+    details.classList.toggle('hidden');
+    details.classList.toggle('animate-fadeIn');
+  }
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+</style>
