@@ -31,41 +31,44 @@
           <div class="grid sm:grid-cols-3 gap-4">
             
             <!-- PayPal -->
-            <div onclick="toggleBankDetails()" 
-                 class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
-              <i data-feather="send" class="w-8 h-8 text-[#be3144] mb-3"></i>
-              <span class="font-semibold text-gray-800">Paypal</span>
-              <div id="bank-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
-                <p>
-                <a href="https://www.paypal.com" target="_blank" class="text-[#be3144] underline hover:text-[#9a2534]">
-                Click here
-                </a> to donate via PayPal
-                </p>
-              </div>
+<div onclick="toggleDetails('paypal-details')" 
+     class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
+  <i data-feather="credit-card" class="w-8 h-8 text-[#be3144] mb-3"></i>
+  <span class="font-semibold text-gray-800">PayPal</span>
+  <div id="paypal-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
+    <p>
+      <a href="https://www.paypal.com" target="_blank" class="text-[#be3144] underline hover:text-[#9a2534]">
+        Click here
+      </a> to donate via PayPal
+    </p>
+  </div>
+</div>
 
-            <!-- Monzo -->
-            <div onclick="toggleBankDetails()" 
-                 class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
-              <i data-feather="smartphone" class="w-8 h-8 text-[#be3144] mb-3"></i>
-              <span class="font-semibold text-gray-800">Monzo</span>
-              <div id="bank-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
-                <p>
-                <a href="https://www.monzo.com" target="_blank" class="text-[#be3144] underline hover:text-[#9a2534]">
-                Click here
-                </a> to donate via Monzo
-                </p>
-              </div>
+<!-- Monzo -->
+<div onclick="toggleDetails('monzo-details')" 
+     class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
+  <i data-feather="smartphone" class="w-8 h-8 text-[#be3144] mb-3"></i>
+  <span class="font-semibold text-gray-800">Monzo</span>
+  <div id="monzo-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
+    <p>
+      <a href="https://monzo.com" target="_blank" class="text-[#be3144] underline hover:text-[#9a2534]">
+        Click here
+      </a> to donate via Monzo
+    </p>
+  </div>
+</div>
 
-            <!-- Bank Transfer (Expandable Card) -->
-            <div onclick="toggleBankDetails()" 
-                 class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
-              <i data-feather="credit-card" class="w-8 h-8 text-[#be3144] mb-3"></i>
-              <span class="font-semibold text-gray-800">Bank Transfer</span>
-              <div id="bank-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
-                <p><span class="font-semibold">Name:</span> Me</p>
-                <p><span class="font-semibold">Sort Code:</span> 11-11-11</p>
-                <p><span class="font-semibold">Account Number:</span> 12345678</p>
-              </div>
+<!-- Bank Transfer -->
+<div onclick="toggleDetails('bank-details')" 
+     class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
+  <i data-feather="send" class="w-8 h-8 text-[#be3144] mb-3"></i>
+  <span class="font-semibold text-gray-800">Bank Transfer</span>
+  <div id="bank-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
+    <p><span class="font-semibold">Name:</span> Me</p>
+    <p><span class="font-semibold">Sort Code:</span> 11-11-11</p>
+    <p><span class="font-semibold">Account Number:</span> 12345678</p>
+  </div>
+</div>
             </div>
           </div>
         </div>
@@ -77,14 +80,10 @@
 <?php include 'components/scripts.php'; ?>
 
 <script>
-  function toggleBankDetails() {
-    const details = document.getElementById('bank-details');
+  function toggleDetails(id) {
+    const details = document.getElementById(id);
     details.classList.toggle('hidden');
-    if (!details.classList.contains('hidden')) {
-      details.classList.add('animate-fadeIn');
-    } else {
-      details.classList.remove('animate-fadeIn');
-    }
+    details.classList.toggle('animate-fadeIn');
   }
 </script>
 
