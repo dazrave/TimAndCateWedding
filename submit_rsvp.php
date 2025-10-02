@@ -126,8 +126,8 @@ curl_close($ch);
 
 // Success or failure handling
 if ($http_status === 200) {
-    // ✅ Keep $_SESSION['invite'] alive for main.php
-    $_SESSION['invite'] = $invite;
+    // ✅ DO NOT overwrite $_SESSION['invite'] with the old copy
+    // At this point, $_SESSION['invite'] already has the updated RSVP fields
     header('Location: thankyou.php');
     exit;
 } else {

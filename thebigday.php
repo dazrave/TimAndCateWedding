@@ -1,111 +1,109 @@
- <!-- The Big Day Section -->
-    <section class="py-20 bg-gray-50 mt-16">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">The Big Day</h2>
-                <div class="w-24 h-1 bg-d2691e mx-auto"></div>
-            </div>
-            
-            <div class="max-w-3xl mx-auto" data-aos="fade-up">
-                <div class="mb-12">
-                    <h3 class="text-xl font-bold text-be3144 mb-4">Saturday, 10th October 2026</h3>
-                    <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-[1.02] transition-transform duration-500" data-aos="zoom-in">
-                        <div class="space-y-6">
-                            <!-- Ceremony -->
-                            <div class="flex items-start group" data-aos="fade-right" data-aos-delay="100">
-                                <div class="bg-gradient-to-br from-be3144 to-d2691e text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 transform group-hover:rotate-12 transition-transform duration-300">
-                                    <i data-feather="clock" class="w-6 h-6"></i>
-                                </div>
-                                <div class="group-hover:translate-x-2 transition-transform duration-300">
-                                    <h4 class="font-bold text-xl text-gray-800 group-hover:text-be3144 transition-colors duration-300">1:00 PM</h4>
-                                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">Ceremony</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Drinks -->
-                            <div class="flex items-start group" data-aos="fade-right" data-aos-delay="200">
-                                <div class="bg-gradient-to-br from-d2691e to-be3144 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 transform group-hover:-rotate-12 transition-transform duration-300">
-                                    <i data-feather="glass" class="w-6 h-6"></i>
-                                </div>
-                                <div class="group-hover:translate-x-2 transition-transform duration-300">
-                                    <h4 class="font-bold text-xl text-gray-800 group-hover:text-d2691e transition-colors duration-300">2:00 PM</h4>
-                                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">Drinks Reception & Canapés</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Dinner -->
-                            <div class="flex items-start group" data-aos="fade-right" data-aos-delay="300">
-                                <div class="bg-gradient-to-br from-be3144 to-d2691e text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 transform group-hover:rotate-12 transition-transform duration-300">
-                                    <i data-feather="dinner" class="w-6 h-6"></i>
-                                </div>
-                                <div class="group-hover:translate-x-2 transition-transform duration-300">
-                                    <h4 class="font-bold text-xl text-gray-800 group-hover:text-be3144 transition-colors duration-300">3:30 PM</h4>
-                                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">Wedding Breakfast</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Evening -->
-                            <div class="flex items-start group" data-aos="fade-right" data-aos-delay="400">
-                                <div class="bg-gradient-to-br from-d2691e to-be3144 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 transform group-hover:-rotate-12 transition-transform duration-300">
-                                    <i data-feather="music" class="w-6 h-6"></i>
-                                </div>
-                                <div class="group-hover:translate-x-2 transition-transform duration-300">
-                                    <h4 class="font-bold text-xl text-gray-800 group-hover:text-d2691e transition-colors duration-300">7:30 PM</h4>
-                                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">Evening Reception with Live Band & DJ</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Carriages -->
-                            <div class="flex items-start group" data-aos="fade-right" data-aos-delay="500">
-                                <div class="bg-gradient-to-br from-be3144 to-d2691e text-white rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0 transform group-hover:rotate-12 transition-transform duration-300">
-                                    <i data-feather="moon" class="w-6 h-6"></i>
-                                </div>
-                                <div class="group-hover:translate-x-2 transition-transform duration-300">
-                                    <h4 class="font-bold text-xl text-gray-800 group-hover:text-be3144 transition-colors duration-300">1:00 AM</h4>
-                                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">Carriages</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-</div>
-            </div>
+<!-- The Big Day Section -->
+<section class="py-20 bg-gray-50 mt-16">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">The Big Day</h2>
+      <div class="w-24 h-1 mx-auto" style="background-color: #be3144;"></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto relative" data-aos="fade-up">
+      <!-- Vertical line for timeline -->
+      <div class="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#be3144] to-[#d2691e] rounded-full"></div>
+
+      <div class="space-y-12 ml-12">
+        <!-- Ceremony -->
+        <div class="flex items-start relative group" data-aos="fade-right" data-aos-delay="100">
+          <div class="absolute -left-12 bg-gradient-to-br from-[#be3144] to-[#d2691e] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+            <i data-feather="heart" class="w-6 h-6"></i>
+          </div>
+          <div class="pl-4">
+            <h4 class="font-bold text-xl text-gray-800">1:00 PM – Ceremony</h4>
+            <p class="text-gray-600">Join us in the garden pavilion as we say "I do".</p>
+          </div>
         </div>
-    </section>
+
+        <!-- Drinks -->
+        <div class="flex items-start relative group" data-aos="fade-right" data-aos-delay="200">
+          <div class="absolute -left-12 bg-gradient-to-br from-[#d2691e] to-[#be3144] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+            <i data-feather="coffee" class="w-6 h-6"></i>
+          </div>
+          <div class="pl-4">
+            <h4 class="font-bold text-xl text-gray-800">2:00 PM – Drinks Reception</h4>
+            <p class="text-gray-600">Champagne, cocktails & canapés on the lawn.</p>
+          </div>
+        </div>
+
+        <!-- Dinner -->
+        <div class="flex items-start relative group" data-aos="fade-right" data-aos-delay="300">
+          <div class="absolute -left-12 bg-gradient-to-br from-[#be3144] to-[#d2691e] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+            <i data-feather="feather" class="w-6 h-6"></i>
+          </div>
+          <div class="pl-4">
+            <h4 class="font-bold text-xl text-gray-800">3:30 PM – Wedding Breakfast</h4>
+            <p class="text-gray-600">A three-course meal with wine, laughter and speeches.</p>
+          </div>
+        </div>
+
+        <!-- Evening Party -->
+        <div class="flex items-start relative group" data-aos="fade-right" data-aos-delay="400">
+          <div class="absolute -left-12 bg-gradient-to-br from-[#d2691e] to-[#be3144] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+            <i data-feather="music" class="w-6 h-6"></i>
+          </div>
+          <div class="pl-4">
+            <h4 class="font-bold text-xl text-gray-800">7:30 PM – Evening Reception</h4>
+            <p class="text-gray-600">Live band & DJ — get ready to dance the night away!</p>
+          </div>
+        </div>
+
+        <!-- Carriages -->
+        <div class="flex items-start relative group" data-aos="fade-right" data-aos-delay="500">
+          <div class="absolute -left-12 bg-gradient-to-br from-[#be3144] to-[#d2691e] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+            <i data-feather="moon" class="w-6 h-6"></i>
+          </div>
+          <div class="pl-4">
+            <h4 class="font-bold text-xl text-gray-800">1:00 AM – Carriages</h4>
+            <p class="text-gray-600">Say goodnight as we end with hearts full of joy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Entertainment Section -->
 <section id="entertainment" class="py-20 bg-white">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Entertainment</h2>
-      <div class="w-24 h-1 bg-be3144 mx-auto"></div>
+      <div class="w-24 h-1 mx-auto" style="background-color: #be3144;"></div>
     </div>
 
-    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8" data-aos="fade-up">
-      <!-- Ceremony -->
-      <div class="text-center">
-        <div class="bg-gray-50 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6">
-          <i data-feather="music" class="w-12 h-12 text-be3144"></i>
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- Ceremony Music -->
+      <div class="bg-gray-50 rounded-2xl shadow-lg p-6 text-center transform hover:scale-[1.02] transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-gradient-to-br from-[#be3144] to-[#d2691e] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-white shadow-md">
+          <i data-feather="music" class="w-8 h-8"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-800 mb-2">Ceremony</h3>
-        <p class="text-gray-600">Live piano music during the ceremony</p>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Ceremony</h3>
+        <p class="text-gray-600">Live piano to make the moment magical.</p>
       </div>
 
-      <!-- Reception -->
-      <div class="text-center">
-        <div class="bg-gray-50 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6">
-          <i data-feather="users" class="w-12 h-12 text-be3144"></i>
+      <!-- Reception Trio -->
+      <div class="bg-gray-50 rounded-2xl shadow-lg p-6 text-center transform hover:scale-[1.02] transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-gradient-to-br from-[#d2691e] to-[#be3144] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-white shadow-md">
+          <i data-feather="users" class="w-8 h-8"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-800 mb-2">Reception</h3>
-        <p class="text-gray-600">Trio performing during drinks reception</p>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Drinks Reception</h3>
+        <p class="text-gray-600">A trio playing light jazz and classics during cocktails.</p>
       </div>
 
-      <!-- Evening -->
-      <div class="text-center">
-        <div class="bg-gray-50 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6">
-          <i data-feather="mic" class="w-12 h-12 text-be3144"></i>
+      <!-- Evening Band -->
+      <div class="bg-gray-50 rounded-2xl shadow-lg p-6 text-center transform hover:scale-[1.02] transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+        <div class="bg-gradient-to-br from-[#be3144] to-[#d2691e] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-white shadow-md">
+          <i data-feather="mic" class="w-8 h-8"></i>
         </div>
-        <h3 class="text-xl font-bold text-gray-800 mb-2">Evening</h3>
-        <p class="text-gray-600">Live band Bellerose followed by DJ until late</p>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Evening Party</h3>
+        <p class="text-gray-600">Live band *Bellerose* followed by our DJ until late.</p>
       </div>
     </div>
   </div>

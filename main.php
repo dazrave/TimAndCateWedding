@@ -46,7 +46,8 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite !== 'yes') {
     switch ($effectiveGroup) {
         case 1:
             // Fully funded guests: show all sections
-            include __DIR__ . '/venue_wedding.php';
+            include __DIR__ . '/venue.php';
+            include __DIR__ . '/venue_weekend.php';
             include __DIR__ . '/travel.php';
             include __DIR__ . '/thebigday.php';
             include __DIR__ . '/faq.php';
@@ -56,7 +57,8 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite !== 'yes') {
 
         case 2:
             // Subsidised guests: show all sections + (later) payment info
-            include __DIR__ . '/venue_wedding.php';
+            include __DIR__ . '/venue.php';
+            include __DIR__ . '/venue_weekend.php';
             include __DIR__ . '/travel.php';
             include __DIR__ . '/thebigday.php';
             include __DIR__ . '/faq.php';
@@ -71,6 +73,7 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite !== 'yes') {
             include __DIR__ . '/thebigday.php';
             include __DIR__ . '/faq.php';
             include __DIR__ . '/gifts.php';
+            include __DIR__ . '/photos.php';
             break;
     }
     ?>
