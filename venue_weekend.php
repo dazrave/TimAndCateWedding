@@ -30,6 +30,36 @@
                         classic charm with contemporary comfort.
                     </p>
                 </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-be3144 mb-6">
+                        <h4 class="font-bold text-gray-800 mb-4">Weekend Guest Information</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <p class="font-medium text-gray-700">Friday Arrival</p>
+                                <p class="text-gray-600">Check-in from 3:00 PM | Evening BBQ Dinner at 7:00 PM (casual dress)</p>
+                            </div>
+                            
+                            <div>
+                                <p class="font-medium text-gray-700">Saturday</p>
+                                <p class="text-gray-600">Breakfast buffet 9:00-11:00 AM | Wedding ceremony at 2:00 PM</p>
+                            </div>
+                            
+                            <div>
+                                <p class="font-medium text-gray-700">Sunday Departure</p>
+                                <p class="text-gray-600">Breakfast buffet 9:00-11:00 AM | Check-out by 11:00 AM</p>
+                            </div>
+                            
+                            <div>
+                                <p class="font-medium text-gray-700">Breakfast Menu</p>
+                                <p class="text-gray-600">Full English breakfast with vegetarian options, fresh pastries, fruits, cereals, and specialty coffees</p>
+                            </div>
+                            
+                            <div>
+                                <p class="font-medium text-gray-700">Friday Dinner</p>
+                                <p class="text-gray-600">Garden BBQ featuring local Cumbrian meats, grilled vegetables, salads, and desserts</p>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
