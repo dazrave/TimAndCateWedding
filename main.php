@@ -7,8 +7,16 @@ if (!isset($_SESSION['invite'])) {
     exit;
 }
 
+// Pull group + RSVP choices from session
 $groupId = $_SESSION['invite']['Group_ID'] ?? null;
 $userName = $_SESSION['invite']['User_Present_Name'] ?? 'Guest';
+$stayingOnsite = $_SESSION['invite']['Staying_Onsite'] ?? 'no'; // default to "no" if not set
+
+// Decide what content group they should actually see
+$effectiveGroup = 3; // default fallback to lightweight view
+if (in_array($groupId, [1, 2]) && $stayingOnsite === 'yes') {
+    $effectiveGroup = $groupId; // show their true group if staying onsite
+}
 ?>
 
 <?php include __DIR__ . '/components/header.php'; ?>
@@ -20,7 +28,8 @@ $userName = $_SESSION['invite']['User_Present_Name'] ?? 'Guest';
     <!-- Group Label Banner (Optional Debug / Group Visual) -->
     <?php if ($groupId): ?>
         <div class="bg-red-700 text-white text-center py-4 text-xl font-bold">
-            This is the Group <?= htmlspecialchars($groupId) ?> page
+            Logged in as Group <?= htmlspecialchars($groupId) ?> 
+            (Effective View: Group <?= htmlspecialchars($effectiveGroup) ?>)
         </div>
     <?php endif; ?>
 
@@ -34,7 +43,7 @@ $userName = $_SESSION['invite']['User_Present_Name'] ?? 'Guest';
 
     <!-- Dynamic Section Inclusion -->
     <?php
-        $groupFile = "group{$groupId}_sections.php";
+        $groupFile = "group{$effectiveGroup}_sections.php";
         if (file_exists($groupFile)) {
             include $groupFile;
         } else {
