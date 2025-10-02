@@ -31,23 +31,35 @@
           <div class="grid sm:grid-cols-3 gap-4">
             
             <!-- PayPal -->
-            <a href="https://www.google.com" target="_blank"
-              class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02]">
-              <i data-feather="credit-card" class="w-8 h-8 text-[#be3144] mb-3"></i>
-              <span class="font-semibold text-gray-800">PayPal</span>
-            </a>
+            <div onclick="toggleBankDetails()" 
+                 class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
+              <i data-feather="send" class="w-8 h-8 text-[#be3144] mb-3"></i>
+              <span class="font-semibold text-gray-800">Paypal</span>
+              <div id="bank-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
+                <p>
+                <a href="https://www.paypal.com" target="_blank" class="text-[#be3144] underline hover:text-[#9a2534]">
+                Click here
+                </a> to donate via PayPal
+                </p>
+              </div>
 
             <!-- Monzo -->
-            <a href="https://www.google.com" target="_blank"
-              class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02]">
+            <div onclick="toggleBankDetails()" 
+                 class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
               <i data-feather="smartphone" class="w-8 h-8 text-[#be3144] mb-3"></i>
               <span class="font-semibold text-gray-800">Monzo</span>
-            </a>
+              <div id="bank-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
+                <p>
+                <a href="https://www.monzo.com" target="_blank" class="text-[#be3144] underline hover:text-[#9a2534]">
+                Click here
+                </a> to donate via Monzo
+                </p>
+              </div>
 
             <!-- Bank Transfer (Expandable Card) -->
             <div onclick="toggleBankDetails()" 
                  class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer">
-              <i data-feather="send" class="w-8 h-8 text-[#be3144] mb-3"></i>
+              <i data-feather="credit-card" class="w-8 h-8 text-[#be3144] mb-3"></i>
               <span class="font-semibold text-gray-800">Bank Transfer</span>
               <div id="bank-details" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
                 <p><span class="font-semibold">Name:</span> Me</p>
@@ -85,3 +97,4 @@
     animation: fadeIn 0.3s ease-out forwards;
   }
 </style>
+
