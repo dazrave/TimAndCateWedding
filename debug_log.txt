@@ -1326,3 +1326,32 @@ Array
     [Final_Notes] => 
     [RSVP_Timestamp] => 2025-10-01 13:51:41
 )
+[2025-10-01 20:56:11] Submitted login code: FratBro
+[2025-10-01 20:56:15] API response: {"status":"success","data":{"Invite_ID":"INV1013","Login_Code":"FratBro","User_ID":"1023, 1024","User_Name":"Craig Johnson, Suzi Johnson","User_Present_Name":"Craig & Suzi","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-01 20:56:15] Decoded API success. Attendance_Group: 
+[2025-10-01 20:56:15] Redirecting to rsvp.php
+Array
+(
+    [Attendance_Group] => all_attending
+    [Dietary_Requirements] => noe
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [Invite_ID] => INV1013
+    [Login_Code] => FratBro
+)
+Array
+(
+    [Invite_ID] => INV1013
+    [Login_Code] => FratBro
+    [Attendance_Group] => all_attending
+    [Individual_Attendance] => Array
+        (
+        )
+
+    [Dietary_Requirements] => noe
+    [Staying_Onsite] => yes
+    [Friday_Dinner] => yes
+    [Final_Notes] => 
+    [RSVP_Timestamp] => 2025-10-01 20:56:26
+)
