@@ -7,15 +7,15 @@ if (!isset($_SESSION['invite'])) {
     exit;
 }
 
-// Pull group + RSVP choices from session
-$groupId = $_SESSION['invite']['Group_ID'] ?? 3; // fallback to 3
+$groupId = $_SESSION['invite']['Group_ID'] ?? null;
+$stayingOnsite = $_SESSION['invite']['Staying_Onsite'] ?? '';
 $userName = $_SESSION['invite']['User_Present_Name'] ?? 'Guest';
-$stayingOnsite = $_SESSION['invite']['Staying_Onsite'] ?? 'no'; // default to "no" if not set
 
-// Decide what content group they should actually see
-$effectiveGroup = 3; // default fallback to lightweight view
-if (in_array($groupId, [1, 2]) && $stayingOnsite === 'yes') {
-    $effectiveGroup = $groupId; // show their true group if staying onsite
+// Override logic: If Group 1 or 2 but NOT staying onsite, treat as Group 3
+if (in_array($groupId, [1, 2]) && $stayingOnsite !== 'yes') {
+    $effectiveGroup = 3;
+} else {
+    $effectiveGroup = $groupId;
 }
 ?>
 
@@ -28,8 +28,8 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite === 'yes') {
     <!-- Group Label Banner (Optional Debug / Group Visual) -->
     <?php if ($groupId): ?>
         <div class="bg-red-700 text-white text-center py-4 text-xl font-bold">
-            Logged in as Group <?= htmlspecialchars($groupId) ?> 
-            (Effective View: Group <?= htmlspecialchars($effectiveGroup) ?>)
+            You are Group <?= htmlspecialchars($groupId) ?> 
+            (Effective Group <?= htmlspecialchars($effectiveGroup) ?>)
         </div>
     <?php endif; ?>
 
@@ -41,12 +41,12 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite === 'yes') {
         <p class="text-lg text-[#666]">We're so excited to celebrate with you. Scroll down for everything you need to know.</p>
     </section>
 
-    <!-- Dynamic Content Based on Group -->
+    <!-- Dynamic Content Based on Effective Group -->
     <?php
-    switch ($groupId) {
+    switch ($effectiveGroup) {
         case 1:
             // Fully funded guests: show all sections
-            include __DIR__ . '/venue.php';
+            include __DIR__ . '/venue_wedding.php';
             include __DIR__ . '/travel.php';
             include __DIR__ . '/thebigday.php';
             include __DIR__ . '/faq.php';
@@ -56,7 +56,7 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite === 'yes') {
 
         case 2:
             // Subsidised guests: show all sections + (later) payment info
-            include __DIR__ . '/venue.php';
+            include __DIR__ . '/venue_wedding.php';
             include __DIR__ . '/travel.php';
             include __DIR__ . '/thebigday.php';
             include __DIR__ . '/faq.php';
@@ -66,12 +66,11 @@ if (in_array($groupId, [1, 2]) && $stayingOnsite === 'yes') {
 
         case 3:
         default:
-            // Day guests only: show restricted sections
+            // Day guests only: restricted sections
             include __DIR__ . '/venue.php';
             include __DIR__ . '/thebigday.php';
             include __DIR__ . '/faq.php';
             include __DIR__ . '/gifts.php';
-            include __DIR__ . '/photos.php';
             break;
     }
     ?>

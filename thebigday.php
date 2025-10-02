@@ -1,6 +1,3 @@
-<?php include('components/header.php'); ?>
-<?php include('components/navbar.php'); ?>
-
  <!-- The Big Day Section -->
     <section class="py-20 bg-gray-50 mt-16">
         <div class="container mx-auto px-6">
