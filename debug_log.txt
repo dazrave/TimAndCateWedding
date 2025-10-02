@@ -1140,3 +1140,7 @@ Array
 [2025-10-02 21:07:16] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"attending","Individual_Attendance":"","Dietary_Requirements":"none","Staying_Onsite":"yes","Friday_Dinner":"yes","Final_Notes":"","RSVP_Timestamp":"2025-10-01T20:13:51.660Z"}}
 [2025-10-02 21:07:16] Decoded API success. Attendance_Group: attending
 [2025-10-02 21:07:16] Redirecting to main.php
+[2025-10-02 21:15:40] Submitted login code: test1
+[2025-10-02 21:15:44] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"test1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"attending","Individual_Attendance":"","Dietary_Requirements":"none","Staying_Onsite":"yes","Friday_Dinner":"yes","Final_Notes":"","RSVP_Timestamp":"2025-10-01T20:13:51.660Z"}}
+[2025-10-02 21:15:44] Decoded API success. Attendance_Group: attending
+[2025-10-02 21:15:44] Redirecting to main.php
