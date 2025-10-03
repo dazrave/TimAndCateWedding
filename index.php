@@ -12,8 +12,9 @@ $login_code = '';
 $error_message = '';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login_code'])) {
-    $login_code = trim($_POST['login_code']);
-    log_debug("Submitted login code: $login_code");
+    // Normalize to uppercase for case-insensitive matching
+    $login_code = strtoupper(trim($_POST['login_code']));
+    log_debug("Submitted login code (normalized): $login_code");
 
     $api_url = 'https://script.google.com/macros/s/AKfycbxguaWfcJATy5iD0XHI1YhVXlfvx4srpgnWMJH8AuimKHB_pBG_Yvj4iXgdVbXvtPqE/exec?login_code=' . urlencode($login_code);
     $response = file_get_contents($api_url);

@@ -1284,3 +1284,7 @@ Array
     [Final_Notes] => 
     [RSVP_Timestamp] => 2025-10-03 08:36:43
 )
+[2025-10-03 08:58:44] Submitted login code (normalized): TEST1
+[2025-10-03 08:58:47] API response: {"status":"success","data":{"Invite_ID":"INV1043","Login_Code":"TEST1","User_ID":"1064","User_Name":"Test1 User1","User_Present_Name":"Tester Fully funded","Group_ID":1,"Attendance_Group":"","Individual_Attendance":"","Dietary_Requirements":"","Staying_Onsite":"","Friday_Dinner":"","Final_Notes":"","RSVP_Timestamp":""}}
+[2025-10-03 08:58:47] Decoded API success. Attendance_Group: 
+[2025-10-03 08:58:47] Redirecting to rsvp.php
