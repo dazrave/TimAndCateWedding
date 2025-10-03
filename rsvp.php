@@ -83,7 +83,7 @@ $is_solo = ($group_size === 1);
                 <?php if ($group_id === 1): ?>
                     Free of charge.
                 <?php else: ?>
-                    The cost is (<?= $is_solo ? '£100' : '£200' ?> in total).
+                    The cost is <?= $is_solo ? '£100' : '£200' ?> in total.
                 <?php endif; ?>
                 Due to check-in/out rules, <?= $is_solo ? "you’d need to arrive Friday and leave Sunday. Would you like to stay with us at the venue?" : "you’d all need to arrive Friday and leave Sunday. Would you like to stay with us at the venue?" ?>
             </label>
