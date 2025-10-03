@@ -33,11 +33,26 @@ $is_solo = ($group_size === 1);
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
 <form method="POST" action="submit_rsvp.php" class="bg-white shadow-lg rounded-lg p-8 w-full max-w-xl space-y-6" id="rsvp-form">
-    <h1 class="text-2xl font-bold text-center text-gray-800 mb-[-10px]">RSVP for <?= htmlspecialchars($invite['User_Present_Name']) ?></h1>
-    <p class="text-center text-gray-600 italic mt-[-10px] mb-6">
-    Please RSVP by 31st December 2025<br>
-    If we don’t hear from you, we’ll assume you can’t join us
-    </p>
+    <h1 class="text-2xl font-bold text-center text-gray-800 mb-[-20px]">RSVP for <?= htmlspecialchars($invite['User_Present_Name']) ?></h1>
+    
+    
+    <!-- Wedding Info Expandable Box -->
+    <div onclick="toggleDetails('wedding-info')" 
+        class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer mt-4">
+    <i data-feather="info" class="w-8 h-8 text-[#be3144] mb-3"></i>
+    <span class="font-semibold text-gray-800">Wedding Info</span>
+
+    <!-- Hidden Content -->
+    <div id="wedding-info" class="hidden mt-4 text-sm text-gray-600 text-center space-y-1 w-full">
+        <p>Saturday 10 October, 2026</p>
+        <p>Merewood Country House Hotel</p>
+        <p>Windermere, LA23 1LH</p>
+        <p class="text-xs text-gray-500 italic mt-2">
+            Please RSVP by 31st December 2025<br>
+            If we don’t hear from you, we’ll assume you can’t join us
+        </p>
+    </div>
+</div>
 
     <!-- Step 1: Attendance -->
     <div>
@@ -204,3 +219,5 @@ $is_solo = ($group_size === 1);
 </script>
 </body>
 </html>
+
+<?php include 'components/scripts.php'; ?>
